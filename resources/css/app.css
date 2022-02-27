@@ -1,0 +1,85 @@
+body {
+    background: #2a2e32;
+  }
+  
+.text-small {
+    font-size: 0.9rem;
+}
+  
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+  
+a:hover, a:focus {
+    text-decoration: none;
+}
+  
+.form-control {
+    background: #212529;
+    border-color: #545454;
+}
+  
+.form-control:focus {
+    background: #212529;
+}
+  
+footer {
+    background: #212529 !important;
+}
+  
+ 
+body, html {
+      height: 100%;
+}
+
+.slide{
+    height: 30px !important;
+    
+}
+
+/*footer Area*/
+
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 10px;
+  height:10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+
+.fa-yahoo {
+  background: #430297;
+  color: white;
+}
+
