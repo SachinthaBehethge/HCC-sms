@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SiteSetting;
+use Auth;
+
+use function GuzzleHttp\Promise\exception_for;
 
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
      *
+     * @return \Illuminate\Http\Response
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['homepage', 'about', 'contact']]);
+    
     }
 
     /**
@@ -21,8 +27,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function homepage()
     {
-        return view('home');
+        return view('dashboard');
     }
+
+
+
+    public function about()
+    {
+        return view('about');
+    }
+
+
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function admin(){
+
+        return view('admin.index');
+     }
 }

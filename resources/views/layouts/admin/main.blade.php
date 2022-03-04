@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-     <!-- Scripts -->
-     <script src="{{ asset('js/app.js') }}" defer></script>
-     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
- 
- 
-     <!-- Fonts -->
-     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
- 
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    {{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    
+   
      <!-- Styles -->
+     <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
 
     <title>HCC-Student Management </title>
 </head>
+@yield('styles');
 <body>
       
 <nav class="navbar navbar-default navbar-static-top">
@@ -51,8 +54,8 @@
                     <a href="{{route('admin')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">{{Auth::user()->name}}</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item" href="{{route('homepage')}}"><a  href="{{route('homepage')}}">Web Site</a></li>
-                        <li class="dropdown-item" href="{{route('profile')}}"><a  href="{{route('profile')}}">Profile</a></li>
-                        <li><a href="{{route('admin.courses.index')}}">Manage Courses</a></li>
+                        <li class="dropdown-item" href="#"><a  href="#">Profile</a></li>
+                        <li><a href="#">Manage Courses</a></li>
                         <li>
                             <form id="logoutform" action="{{ route('logout') }}" method="POST">
                             <button>logout</button>
@@ -75,36 +78,25 @@
 			<!-- Main Menu -->
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
-                    <li class="{{ (request()->is('/admin')) ? 'active' : '' }}"><a href="{{url('/admin')}}"><i class="feather-16" data-feather="home"></i><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-                    @if (Auth::user()->role_id==1)
+                    <li class=""><a href="{{route('admin')}}"><i class="feather-16" data-feather="home"></i><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                   
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lvl2">
-                            <span class="glyphicon glyphicon-ok"></span>Student Approval <span class="caret"></span>
+                            <span class="glyphicon glyphicon-ok"></span>Students <span class="caret"></span>
                         </a>
                         <div id="dropdown-lvl2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                    <li class="{{ (request()->is('admin/approvals*')) ? 'active' : '' }}"><a href="{{url('/admin/approval')}}"><i class="feather-16" data-feather="users"></i>  Course Join Requests</a></li>
-                                    <li class="{{ (request()->is('admin/approvals*')) ? 'active' : '' }}"><a href="{{url('/admin/approved')}}"><i class="feather-16" data-feather="user-plus"></i> Approved Students</a></li>
-                                    <li class="{{ (request()->is('admin/approvals*')) ? 'active' : '' }}"><a href="{{url('/admin/rejected')}}"><i class="feather-16" data-feather="user-x"></i> Rejected Students</a></li>        
+                                   <li><a href="#">Students List</a></li>
+                                   <li><a href="{{route('admin.student.create')}}">Add new student</a></li>
+                                         
                                 </ul>
                             </div>
                         </div>
                     </li>
                   
-                    <li class="{{ (request()->is('admin/teachers*')) ? 'active' : '' }}"><a href="{{url('/admin/teachers')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
-                    <li class="{{ (request()->is('admin/subjects*')) ? 'active' : '' }}"><a href="{{url('/admin/subjects')}}"><i class="feather-16" data-feather="archive"></i><span class="glyphicon glyphicon-book"></span> Subjects</a></li>
-                    <li class="{{ (request()->is('admin/grades*')) ? 'active' : '' }}"><a href="{{url('/admin/grades')}}"><i class="feather-16" data-feather="layers"></i><span class="glyphicon glyphicon-th"></span> Grades</a></li>
-                    <li class="{{ (request()->is('admin/media*')) ? 'active' : '' }}"><a href="{{url('/admin/media')}}"><i class="feather-16" data-feather="layers"></i><span class="glyphicon glyphicon-th-list"></span> Media</a></li>
-                    @endif
-                    <li class="{{ (request()->is('admin/courses*')) ? 'active' : '' }}"><a href="{{url('/admin/courses')}}"><i class="feather-16" data-feather="book"></i><span class="glyphicon glyphicon-pencil"></span> Courses</a></li>
-                    
-                    @if (Auth::user()->role_id==1)
-                    <li class="{{ (request()->is('admin/zoom_sessions*')) ? 'active' : '' }}"><a href="{{url('/admin/zoom_sessions')}}"><i class="feather-16" data-feather="video"></i><span class="glyphicon glyphicon-facetime-video"></span> Zoom Sessions</a></li>
-                    <li class="{{ (request()->is('admin/bank_details*')) ? 'active' : '' }}"><a href="{{url('/admin/bank_details')}}"><i class="feather-16" data-feather="dollar-sign"></i><span class="glyphicon glyphicon-credit-card"></span> Bank Details</a></li>
-                    <li class="{{ (request()->is('admin/site_settings*')) ? 'active' : '' }}"><a href="{{url('/admin/site_settings/edit')}}"><i class="feather-16" data-feather="settings"></i><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                    <li class="#"><a href="#"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
                    
-                    @endif
 
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lvl1">
@@ -113,8 +105,7 @@
                         <div id="dropdown-lvl1" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                    <li class="{{ (request()->is('admin/reports*')) ? 'active' : '' }}"><a href="{{url('/admin/reports/students/')}}"><i class="feather-16" data-feather="users"></i>Students</a></li>
-                                    <li class="{{ (request()->is('admin/reports*')) ? 'active' : '' }}"><a href="{{url('/admin/reports/payments/')}}"><i class="feather-16" data-feather="dollar-sign"></i>Payments</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -123,19 +114,61 @@
 
 
                 </ul>
-			</div><!-- /.navbar-collapse -->
+			</div>
 		</nav>
 
 	</div>
 </div> 
 </div>
 @yield('content')
-<footer class="pull-left footer">
-    <p class="col-md-12">
-        <hr class="divider">
-        Copyright &COPY; 2021 <a href=""> </a>
-    </p>
+<footer class="w-100 py-4 bg-dark flex-shrink-0">
+    <div class="container py-4 ">
+        <div class="row ">
+            
+            <div class="col-lg-2 col-md-2">
+                <h5 class="text-white mb-3 text-center">Quick links</h5>
+                <ul class="list-unstyled text-muted text-center">
+                    <li><a href="{{route('homepage')}}">Home</a></li>
+                    <li><a href="{{route('about')}}">About</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h5 class="text-white mb-3 text-center">Social Media</h5>
+                <ul class="text-center">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-yahoo"></a>
+                    
+
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <h5 class="text-white mb-3 text-center">Hewaheta Central College - Talatuoya</h5>
+                <div class="text-center">
+                    <img class="logo image-responsive" src="assets/img/logo/logo2.png" alt="">
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
 </footer>
+<div class="footer__bottom">
+    <div class="container">
+       <div class="row">
+          <div class="col-xxl-12">
+             <div class="footer__copyright text-center">
+                <p>© 2022 HCC-Student Management System, All Rights Reserved. 
+                    <br> Design By <a href="#">Sachintha Behethge</a></p>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

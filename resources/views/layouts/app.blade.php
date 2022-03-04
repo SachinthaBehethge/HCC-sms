@@ -25,10 +25,13 @@
 
 </head>
 <body>
+    @php
+      $loggedUser = Auth::user();
+    @endphp
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="/">
                     HCC-Student Management
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -37,13 +40,14 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link"  href="/">Home</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="#">About</a>
+                            <a class="nav-link"  href="/about">About</a>
 
                         </li>
                         <li class="nav-item">
@@ -57,17 +61,17 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
+                            
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{route('login')}}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
+                          
 
-                            @if (Route::has('register'))
+                            
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -103,8 +107,8 @@
                     <div class="col-lg-3 col-md-3">
                         <h5 class="text-white mb-3 text-center">Quick links</h5>
                         <ul class="list-unstyled text-muted text-center">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="{{route('homepage')}}">Home</a></li>
+                            <li><a href="{{route('about')}}">About</a></li>
                             <li><a href="#">contact</a></li>
                         </ul>
                     </div>

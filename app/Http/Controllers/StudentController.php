@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\MODELS\User;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.student.create');
     }
 
     /**
@@ -35,7 +36,49 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'indexno' => 'required|max:255',
+            'fullname' => 'required|max:255',
+            'guardianemail'=> 'required',
+
+            'email'=> 'required|unique:users'
+        ]);
+
+        $user = new User;
+        $user->name = $request->fullname;
+        $user->email = $request->email;
+        $user->password = $request->indexno;
+        $user->role_id ='3';
+        $user->save();
+
+        $student = new Student();
+        $student->id = $user->id;
+        $student->index_no = $request->indexno;
+        $student->student_no = $request->stno;
+        $student->index_no = $request->indexno;
+        $student->fullname = $request->fullname;
+        $student->email = $request->email;
+        $student->name_with_ini = $request->initials;
+        $student->address = $request->address;
+        $student->dob = $request->dob;
+        $student->nationality = $request->nationality;
+        $student->nic = $request->nic;
+        $student->special_needs = $request->specialneed;
+
+        $student->gardian_name = $request->guardianname;
+        $student->gardian_email = $request->guardianemail;
+        $student->gardian_phone = $request->guardianphone;
+        $student->distance = $request->distance;
+        $student->way_of_coming = $request->coming;
+        $student->section_id = 1;
+        
+        $student->save();
+
+        
+
+       
+        return redirect()->route('admin.student.create')->with('message', 'Teacher Saved successfully!');
     }
 
     /**
