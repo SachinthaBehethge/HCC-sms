@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSectionIdToStudentsTable extends Migration
+class CreateSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddSectionIdToStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->integer('section_id')->unsigned();
-            
-            
-        }); 
+        Schema::create('sections', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,8 +27,6 @@ class AddSectionIdToStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->dropColumn('section_id');
-        });
+        Schema::dropIfExists('sections');
     }
 }

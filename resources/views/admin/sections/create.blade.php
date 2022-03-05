@@ -6,7 +6,8 @@
         <h1 class="page-header">Add New Section</h1>
     </div>
     <div class="panel-body">
-        <form action="{{route('admin.sections.store')}}" method="post">
+        <form action="{{route('admin.sections.store')}}" method="POST"  enctype="multipart/form-data">
+           @csrf
             <br>
             <div class="form-floating">
                 <label for="floating-input">section</label>
