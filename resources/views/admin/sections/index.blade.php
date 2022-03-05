@@ -12,9 +12,34 @@
                     <th>Section</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td></td>
-                </tr>
+                @forelse($sections as $section)
+    
+                        <tr>
+                            <td>{{$section->id }}</td>
+                            <td>{{$section->name}}</td>
+                            {{-- <td> <a href="{{ route('#', $section->id) }}" class="btn btn-xs btn-primary">Edit</a> --}}
+                            
+                            {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
+                                @csrf
+                                {{method_field('DELETE')}}
+                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                    class="btn btn-xs btn-danger" />
+                            </form> --}}
+                                
+                            <td>
+
+                            </td>
+                            
+    
+    
+                            
+                        </tr>
+    
+                    @empty
+                        <tr>
+                            <td colspan="2">No Grades Found</td>
+                        </tr>
+                    @endforelse
                    
             </table>
        
