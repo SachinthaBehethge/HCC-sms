@@ -78,7 +78,7 @@ class StudentController extends Controller
         
 
        
-        return redirect()->route('admin.student.create')->with('message', 'Teacher Saved successfully!');
+        return redirect()->route('admin.student.create')->with('message', 'Student Saved successfully!');
     }
 
     /**

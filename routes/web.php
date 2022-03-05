@@ -51,4 +51,6 @@ Route::group(['middleware' => ['auth','admin']], function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function () {
     
     Route::resource('student', 'StudentController');
+    Route::resource('sections', 'SectionController');
+
 });

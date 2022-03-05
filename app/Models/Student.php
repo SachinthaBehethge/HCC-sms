@@ -14,5 +14,9 @@ class Student extends Model
         return $this->hasOne(User::class,'id');
     }
 
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
    
 }

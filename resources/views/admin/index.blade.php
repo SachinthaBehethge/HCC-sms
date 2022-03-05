@@ -10,6 +10,9 @@
         <p>This is the dashboard for the admin panel of Hewaheta Central College - student management system</p>
         <p> </p>
       <a href="#"><button type="button" class="btn btn-success"></button></a>
+      <div class="text-center">
+        <img class="logo image-responsive" src="assets/img/logo/logo2.png" alt="">
+    </div>
     </div>
   </div>
 </div> 

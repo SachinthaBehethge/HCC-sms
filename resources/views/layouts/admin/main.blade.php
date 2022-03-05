@@ -96,6 +96,7 @@
                     </li>
                   
                     <li class="#"><a href="#"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
+                    <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>
                    
 
                     <li class="panel panel-default" id="dropdown">
@@ -121,11 +122,15 @@
 </div> 
 </div>
 @yield('content')
+
+
+</div>
+</div>
 <footer class="w-100 py-4 bg-dark flex-shrink-0">
     <div class="container py-4 ">
         <div class="row ">
             
-            <div class="col-lg-2 col-md-2">
+            <div class="col-lg-3 col-md-3">
                 <h5 class="text-white mb-3 text-center">Quick links</h5>
                 <ul class="list-unstyled text-muted text-center">
                     <li><a href="{{route('homepage')}}">Home</a></li>
@@ -133,7 +138,7 @@
                     <li><a href="#">contact</a></li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-6 col-md-6">
                 <h5 class="text-white mb-3 text-center">Social Media</h5>
                 <ul class="text-center">
                     <a href="#" class="fa fa-facebook"></a>
@@ -146,16 +151,16 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">
-                <h5 class="text-white mb-3 text-center">Hewaheta Central College - Talatuoya</h5>
                 <div class="text-center">
                     <img class="logo image-responsive" src="assets/img/logo/logo2.png" alt="">
                 </div>
-                
+                <h5 class="text-white mb-3 text-center">Hewaheta Central College - Talatuoya</h5>
+
             </div>
             
         </div>
     </div>
-</footer>
+</footer> 
 <div class="footer__bottom">
     <div class="container">
        <div class="row">
@@ -168,8 +173,6 @@
        </div>
     </div>
  </div>
-</div>
-</div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
