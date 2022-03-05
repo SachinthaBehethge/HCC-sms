@@ -54,6 +54,16 @@
                             <a  class="nav-link"  href="#">Contact</a>
 
                         </li>
+                        @auth
+
+                        @if ($loggedUser->role_id!=1)
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My Dashboard</a>
+                        </li>
+                        @endif   
+                        @endauth
+                             
+                    
 
                     </ul>
 
@@ -68,10 +78,7 @@
                           
 
                             
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            
+                              
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

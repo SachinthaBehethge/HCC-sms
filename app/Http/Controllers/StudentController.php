@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
-use App\MODELS\User;
+use App\Models\User;
+use App\Models\section;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -25,7 +26,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin.student.create');
+        $sections = Section::all();
+
+        return view('admin.student.create',compact('sections'));
     }
 
     /**

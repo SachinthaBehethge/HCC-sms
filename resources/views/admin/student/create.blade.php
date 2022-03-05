@@ -33,6 +33,20 @@
                             </span>
                             @enderror
                         </div>
+
+                        <div class="form-floating">            
+                            <label for="floatingInput">Section:</label>
+                                <br>
+                                <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" >
+                                @foreach ($sections as $section)
+                                    <option value="sinhala">{{$section->name}}</option>
+                                    
+                                @endforeach    
+                                    
+                                </select>
+                                
+                        </div>
+
                         <div class="form-floating">
                             <label for="floatingInput">Email:</label> 
                             <input type="text" id="email" name="email" placeholder="ex: user@use.com" class="form-control @error('email') is-invalid @enderror"/>

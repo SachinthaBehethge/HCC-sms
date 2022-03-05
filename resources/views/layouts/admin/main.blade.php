@@ -54,7 +54,6 @@
                     <a href="{{route('admin')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">{{Auth::user()->name}}</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item" href="{{route('homepage')}}"><a  href="{{route('homepage')}}">Web Site</a></li>
-                        <li class="dropdown-item" href="#"><a  href="#">Profile</a></li>
                         <li><a href="#">Manage Courses</a></li>
                         <li>
                             <form id="logoutform" action="{{ route('logout') }}" method="POST">

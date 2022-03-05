@@ -1,21 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <section >
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="assets/img/slider/school.jpg" class="d-block w-100" alt="...">
+    <header class="masthead" style="background-image: url('assets/img/slider/school.jpg')">
+      <div class="container position-relative px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+              <div class="col-md-10 col-lg-8 col-xl-7">
+                  <div class="site-heading">
+                      <h1>HCC-Student Management System </h1>
+                      <span class="subheading text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam vitae obcaecati dolores sed veniam in atque minima sunt quasi dolor, esse natus ea, mollitia architecto rem quae quaerat nihil a.</span>
+                  </div>
+              </div>
           </div>
-          
-        </div>
       </div>
-     <br><br>
-     <br>
-     <br>
-     <br>
-     <br>
-    </section>
+    </header>
+    
     <section class="vision-mission" >
       <div class="container">
           <div class="row justify-content-center ">
