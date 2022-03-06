@@ -39,7 +39,7 @@
                                 <br>
                                 <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" >
                                 @foreach ($sections as $section)
-                                    <option value="sinhala">{{$section->name}}</option>
+                                    <option value="{{($section->id)}}">{{$section->name}}</option>
                                     
                                 @endforeach    
                                     

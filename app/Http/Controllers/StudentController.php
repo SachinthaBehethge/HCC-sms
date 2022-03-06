@@ -74,7 +74,7 @@ class StudentController extends Controller
         $student->gardian_phone = $request->guardianphone;
         $student->distance = $request->distance;
         $student->way_of_coming = $request->coming;
-        $student->section_id = 1;
+        $student->section_id = $request->section;
         
         $student->save();
 
