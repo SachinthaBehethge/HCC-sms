@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\section;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -51,11 +52,11 @@ class StudentController extends Controller
         $user = new User;
         $user->name = $request->fullname;
         $user->email = $request->email;
-        $user->password = $request->indexno;
+        $user->password = Hash::make($request->indexno);
         $user->role_id ='3';
         $user->save();
 
-        $student = new Student();
+        $student = new Student;
         $student->id = $user->id;
         $student->index_no = $request->indexno;
         $student->student_no = $request->stno;
@@ -71,7 +72,7 @@ class StudentController extends Controller
 
         $student->gardian_name = $request->guardianname;
         $student->gardian_email = $request->guardianemail;
-        $student->gardian_phone = $request->guardianphone;
+        $student->gardian_phone = $request->phone;
         $student->distance = $request->distance;
         $student->way_of_coming = $request->coming;
         $student->section_id = $request->section;

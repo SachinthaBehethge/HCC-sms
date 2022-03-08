@@ -76,8 +76,8 @@
                         </div>
                        
                         <div class="form-floating">
-                            <label for="floatingInput">DOB:</label> 
-                            <input type="date" id="dob" name="bob" placeholder="Birth Date" class="form-control @error('dob') is-invalid @enderror"/>
+                            <label for="floatingInput">Index no:</label> 
+                            <input type="date" id="dob" name="dob"  class="form-control @error('dob') is-invalid @enderror"/>
                             @error('dob')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -138,14 +138,14 @@
                             @enderror
                         </div>
                         <div class="form-floating">
-                            <label for="floatingInput"> Guardian Mobile:</label> 
-                            <input type="text" id="phone" name="phone" placeholder="telephone" class="form-control @error('phone') is-invalid @enderror"/>
+                            <label for="floatingInput">Guardian Phone:</label> 
+                            <input type="text" id="phone" name="phone" placeholder="phone" class="form-control @error('phone') is-invalid @enderror"/>
                             @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                            </div>
+                        </div>
                         <div class="form-floating">
                             <label for="floatingInput">Guardian Email:</label> 
                             <input type="text" id="guardianemail" name="guardianemail" placeholder="ex: guardian@guardian.com" class="form-control @error('guardianemail') is-invalid @enderror"/>
