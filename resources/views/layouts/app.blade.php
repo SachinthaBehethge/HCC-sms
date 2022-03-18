@@ -22,9 +22,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/loader.css')}}">
 
 </head>
+
+
 <body>
+   
     @php
       $loggedUser = Auth::user();
     @endphp
@@ -46,19 +50,28 @@
                             <a class="nav-link"  href="/">Home</a>
 
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link"  href="/about">About</a>
 
                         </li>
                         <li class="nav-item">
                             <a  class="nav-link"  href="#">Contact</a>
 
-                        </li>
+                        </li> --}}
                         @auth
 
-                        @if ($loggedUser->role_id!=1)
+                        @if ($loggedUser->role_id == 3)
                         <li class="nav-item">
                             <a class="nav-link" href="#">My Dashboard</a>
+                        </li>
+
+                        @elseif ($loggedUser->role_id == 1)
+                        <li class="nav-item">
+                            <a href="{{route('admin')}}" class="nav-link">Admin Dashboard</a>
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a href="{{route('profile')}}" class="nav-link">My profile</a>
                         </li>
                         @endif   
                         @endauth
@@ -156,5 +169,12 @@
          </div>
       </div>
     </div>
+
+    <script>
+        $(window).load(function(){
+            $(#loading).fadeOut("slow");
+        });
+    </script>
 </body>
+
 </html>

@@ -76,7 +76,7 @@
                         </div>
                        
                         <div class="form-floating">
-                            <label for="floatingInput">Index no:</label> 
+                            <label for="floatingInput">Birth Date:</label> 
                             <input type="date" id="dob" name="dob"  class="form-control @error('dob') is-invalid @enderror"/>
                             @error('dob')
                             <span class="invalid-feedback" role="alert">

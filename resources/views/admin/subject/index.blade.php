@@ -3,22 +3,20 @@
 <div class="col-md-10 content">
   <div class="panel panel-default">
       <div class="panel-heading">
-        <h1 class="page-header">Students List</h1>
+        <h1 class="page-header">Subjects</h1>
       </div>
       <div class="panel-body">
-            <table class=" table table-boardered table-hover table-responssive ">
+            <table class=" table table-dark table-hover table-responsive ">
                 <tr>
-                    <th>#</th>
-                    <th>Index No.</th>
-                    <th>Student Name</th>
+                    <th>No</th>
+                    <th>Section</th>
                     <th>Action</th>
                 </tr>
-                @foreach($students as $key => $student)
+                @forelse($subjects as $subject)
     
                         <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$student->index_no }}</td>
-                            <td>{{$student->fullname}}</td>
+                            <td>{{$subject->id }}</td>
+                            <td>{{$subject->name}}</td>
                             {{-- <td> <a href="{{ route('#', $section->id) }}" class="btn btn-xs btn-primary">Edit</a> --}}
                             
                             {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
@@ -37,12 +35,15 @@
                             
                         </tr>
     
-                   
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="2">No Streams Found</td>
+                        </tr>
+                    @endforelse
                    
             </table>
        
-            <a href="{{route('admin.student.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Student</button></a>
+            <a href="{{route('admin.subjects.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Subject</button></a>
 
     </div>
   </div>

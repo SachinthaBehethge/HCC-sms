@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
 {
@@ -14,7 +16,10 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        
+        $teachers = Teacher::all();
+
+        return view('admin.teachers.index',compact('teachers'));
     }
 
     /**
@@ -25,6 +30,7 @@ class TeacherController extends Controller
     public function create()
     {
        
+        return view('admin.teachers.create');
     }
 
     /**
@@ -35,7 +41,31 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'teacherno' => 'required|max:255',
+            'teachername' => 'required|max:255',
+    
+
+            'email'=> 'required|unique:users'
+        ]);
+
+        $user = new User;
+        $user->name = $request->teachername;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->teacherno);
+        $user->role_id ='2';
+        $user->save();
+
+        $teacher = new Teacher;
+        $teacher->id = $user->id;
+        $teacher->name = $request->teachername;
+        $teacher->teacher_no = $request->teacherno;
+        $teacher->phone = $request->phone;
+        $teacher->email = $request->email;
+        $teacher->gender = $request->gender;
+        $teacher->save();
+
+        return redirect()->route('admin.teachers.index')->with('message', 'Teacher Saved successfully!');
     }
 
     /**

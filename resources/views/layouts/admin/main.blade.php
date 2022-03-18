@@ -25,7 +25,7 @@
       
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
+		
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
 			MENU
@@ -86,7 +86,7 @@
                         <div id="dropdown-lvl2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                   <li><a href="#">Students List</a></li>
+                                   <li><a href="{{route('admin.student.index')}}">Students List</a></li>
                                    <li><a href="{{route('admin.student.create')}}">Add new student</a></li>
                                          
                                 </ul>
@@ -94,13 +94,15 @@
                         </div>
                     </li>
                   
-                    <li class="#"><a href="#"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
+                    <li class="#"><a href="{{route('admin.teachers.index')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
                     <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>
-                   
+                    <li class="#"><a href="{{route('admin.streams.index')}}"><i class="feather-16" data-feather="streams"></i><span class="glyphicon glyphicon-th"></span> Streams</a></li>
+                    <li class="#"><a href="{{route('admin.subjects.index')}}"><i class="feather-16" data-feather="subjects"></i><span class="glyphicon glyphicon-th"></span> Subjects</a></li>
+                                      
 
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lvl1">
-                            <span class="glyphicon glyphicon-list-alt"></span> Reports <span class="caret"></span>
+                            <span class="glyphicon glyphicon-list-alt"></span> Subjects <span class="caret"></span>
                         </a>
                         <div id="dropdown-lvl1" class="panel-collapse collapse">
                             <div class="panel-body">
@@ -150,9 +152,9 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">
-                <div class="text-center">
+                {{-- <div class="text-center">
                     <img class="logo image-responsive" src="assets/img/logo/logo2.png" alt="">
-                </div>
+                </div> --}}
                 <h5 class="text-white mb-3 text-center">Hewaheta Central College - Talatuoya</h5>
 
             </div>

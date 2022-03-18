@@ -7,9 +7,12 @@
       </div>
       <div class="panel-body">
 
-        <p>This is the dashboard for the admin panel of Hewaheta Central College - student management system</p>
+        <p>This is the dashboard for the admin panel of Hewaheta Central College - Student Management System</p>
         <p> </p>
       <a href="#"><button type="button" class="btn btn-success"></button></a>
+      <a href="#"><button type="button" class="btn btn-danger"></button></a>
+      <a href="#"><button type="button" class="btn btn-warning"></button></a>
+      <a href="#"><button type="button" class="btn btn-primary"></button></a>
       <div class="text-center">
         <img class="logo image-responsive" src="assets/img/logo/logo2.png" alt="">
     </div>

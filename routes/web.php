@@ -31,7 +31,9 @@ Route::get('/about', 'HomeController@about')->name('about');
 
 Auth::routes(['verify'=>true]);
 //auth routes website
-Route::group(['middleware' => ['auth','verified']], function () {});
+Route::group(['middleware' => ['auth','verified']], function () {
+    Route::get('profile','ProfileController@index')->name('profile');
+});
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -52,5 +54,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     
     Route::resource('student', 'StudentController');
     Route::resource('sections', 'SectionController');
+    Route::resource('teachers', 'teacherController');
+    Route::resource('streams', 'StreamController');
+    Route::resource('subjects', 'SubjectController');
 
 });
