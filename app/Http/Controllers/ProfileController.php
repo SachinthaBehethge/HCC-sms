@@ -28,7 +28,7 @@ class ProfileController extends Controller
         
 
         $teacher = Teacher::findorFail($user->id);
-
+        
 
 
         return view('profile.index', compact('user','teacher'));

@@ -34,9 +34,9 @@ class HomeController extends Controller
 
 
 
-    public function about()
+    public function dashboard()
     {
-        return view('about');
+        return view('student.index');
     }
 
 

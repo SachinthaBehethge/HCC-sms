@@ -33,6 +33,7 @@ Auth::routes(['verify'=>true]);
 //auth routes website
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
+    Route::get('sdashboard','HomeController@dashboard')->name('sdashboard');
 });
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

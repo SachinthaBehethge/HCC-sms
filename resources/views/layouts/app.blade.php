@@ -60,14 +60,15 @@
                         </li> --}}
                         @auth
 
-                        @if ($loggedUser->role_id == 3)
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Dashboard</a>
-                        </li>
-
-                        @elseif ($loggedUser->role_id == 1)
+                        @if ($loggedUser->role_id == 1)
                         <li class="nav-item">
                             <a href="{{route('admin')}}" class="nav-link">Admin Dashboard</a>
+                        </li>
+                       
+
+                        @elseif ($loggedUser->role_id == 3)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('sdashboard')}}">My Dashboard</a>
                         </li>
                         @else
                         <li class="nav-item">
