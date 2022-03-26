@@ -76,7 +76,9 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        $teacher = Teacher::findorFail($teacher->id);
+
+        return view('admin.teachers.view',compact('teacher'));
     }
 
     /**
@@ -112,4 +114,27 @@ class TeacherController extends Controller
     {
         //
     }
+
+    
+    
+
+    public function classteacher(Request $request){
+
+        $teacher= Teacher::findOrFail($request->teacher_id);
+
+       
+        if($teacher->is_classteacher){
+            $teacher->is_classteacher=0;
+        }else{
+            $teacher->is_classteacher=1;
+        }
+
+        $teacher->save();
+
+
+        return redirect()->back();
+
+
+
+     }
 }

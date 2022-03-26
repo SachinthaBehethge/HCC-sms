@@ -58,5 +58,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('teachers', 'teacherController');
     Route::resource('streams', 'StreamController');
     Route::resource('subjects', 'SubjectController');
+    Route::post('classteacher','TeacherController@classteacher')->name('teachers.classteacher');
 
 });

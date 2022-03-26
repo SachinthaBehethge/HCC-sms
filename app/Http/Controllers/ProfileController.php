@@ -26,12 +26,23 @@ class ProfileController extends Controller
     {
         $user = Auth::user(); 
         
+        $teacher = Teacher::find($user->id);
+        $student =Student::find($user->id);
 
-        $teacher = Teacher::findorFail($user->id);
+       
+        if($user->role_id ==2){
+            $teacher = Teacher::findorFail($user->id);
+            
+             
+           
+    
+          }elseif ($user->role_id ==3){
+            $student =Student::findOrFail($user->id);
+          }
         
 
 
-        return view('profile.index', compact('user','teacher'));
+        return view('profile.index', compact('user','teacher','student'));
     }
 
     /**

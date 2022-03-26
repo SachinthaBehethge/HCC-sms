@@ -84,6 +84,16 @@
                             </span>
                             @enderror
                         </div>
+                        <div class="form-floating">            
+                            <label for="floatingInput">Gender:</label>
+                                <br>
+                                <select id="gender" name="gender" class="form-control @error('gender') is-invalid @enderror" >
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    
+                                </select>
+                                
+                        </div>
                         <div class="form-floating">
                             <label for="floatingInput">National ID:</label> 
                             <input type="text" id="nic" name="nic" placeholder="nic" value="DONT HAVE NIC" class="form-control @error('nic') is-invalid @enderror"/>

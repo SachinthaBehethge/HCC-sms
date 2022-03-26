@@ -68,10 +68,12 @@
           $loggedUser = Auth::user();
         @endphp
         <ul class="nav navbar-nav navbar-right">
-          <ul><a href="{{route('profile')}}"><span class="fa fa-user-o"></span>{{$loggedUser->name}}</a>
+          <ul><a href="{{route('profile')}}">
+            <img src="{{asset('assets/img/profile/user-avatar.png')}}" alt="" class="rounded-circle" style="height:50px; width:50px">
+            {{$loggedUser->name}}</a>
             <li></li>
           </ul>
-      
+          
         </ul>
     </header>
 

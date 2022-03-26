@@ -3,7 +3,8 @@
 <div class="col-md-10 content">
   <div class="panel panel-default">
       <div class="panel-heading">
-        <h1 class="page-header">Sections</h1>
+        <h1 class="page-header">Streams</h1>
+        
       </div>
       <div class="panel-body">
             <table class=" table table-dark table-hover table-responsive ">
@@ -17,16 +18,18 @@
                         <tr>
                             <td>{{$stream->id }}</td>
                             <td>{{$stream->stream_name}}</td>
-                            {{-- <td> <a href="{{ route('#', $section->id) }}" class="btn btn-xs btn-primary">Edit</a> --}}
-                            
-                            {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
-                                @csrf
-                                {{method_field('DELETE')}}
-                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
-                                    class="btn btn-xs btn-danger" />
-                            </form> --}}
+                            <td> 
+                                <a href="{{ route('admin.streams.edit', $stream->id) }}" class="btn btn-xs btn-primary col-md-8 mb-2">Edit</a>
                                 
-                            <td>
+                                <form method="POST" action="{{route('admin.streams.destroy', $stream->id)}}">
+                                    @csrf
+                                    {{method_field('DELETE')}}
+                                    
+                                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                        class="btn btn-xs btn-danger col-md-8 " />
+                                </form>
+                                
+                        
 
                             </td>
                             
