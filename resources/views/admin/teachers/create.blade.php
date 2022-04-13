@@ -54,6 +54,21 @@
                         </select>
                         
                 </div>
+                {{-- <label for="form-floating">Password:</label> 
+                <input type="password" id="password" name="password" placeholder="ex: set a password" value=random class="form-control @error('password') is-invalid @enderror"/>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div> --}}
+                <br>
+                <div class="form-floating">
+                    <input class="form-check-input" name="sendEmail" type="checkbox" value="sendEmail" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                    Send Email With Credentials To the Teacher.
+                    </label>
+                </div>
                 <br>
                 <input type="submit" value="Add New Teacher" class="btn btn-primary pull-right">
             </form>

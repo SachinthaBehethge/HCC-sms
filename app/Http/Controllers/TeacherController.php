@@ -6,6 +6,8 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use mail;
 
 class TeacherController extends Controller
 {
@@ -52,7 +54,8 @@ class TeacherController extends Controller
         $user = new User;
         $user->name = $request->teachername;
         $user->email = $request->email;
-        $user->password = Hash::make($request->teacherno);
+        $passWord = str::random(8);
+        $user->password = Hash::make($passWord);
         $user->role_id ='2';
         $user->save();
 
@@ -64,6 +67,14 @@ class TeacherController extends Controller
         $teacher->email = $request->email;
         $teacher->gender = $request->gender;
         $teacher->save();
+
+        if($request->sendEmail){
+
+            Mail::send('email.welcomeTeacher', ['name' => $request->teachername,'email'=>$request->email,'password'=>$passWord], function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Welcome to Hewaheta Central College - Student Management System '.$request->teachername);
+            });
+        }
 
         return redirect()->route('admin.teachers.index')->with('message', 'Teacher Saved successfully!');
     }

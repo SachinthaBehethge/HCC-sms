@@ -1,12 +1,13 @@
-`<div class="sidebar">
+<div class="sidebar">
+ 
     <nav class="sidebar-nav">
 
         <ul class="nav">
           
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" href="#">
-                        <i class="fa-fw fas fa-users nav-icon">
-
+                {{-- <li class="nav-item nav-dropdown">
+                    <a class="nav-link  active nav-dropdown-toggle" href=>
+                        <i class="fa-home nav-icon">
+                            
                         </i>
                        Dashboard
                     </a>
@@ -30,6 +31,65 @@
                             </li>
                       
                     </ul>
+                </li> --}}
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link  active nav-dropdown-toggle" >
+                        
+                    
+                        <i class="fa fa-address-book nav-icon"></i>
+                       Notices
+                    </a>
+                    <ul class="nav-dropdown-items">
+                       
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">School notices</a> 
+                            </li>
+                            <li class="nav-item">
+                               <a href="{{route('notices.index')}}" class="nav-link">Class notices</a> 
+                            </li>
+                       
+                            @if ($loggedUser->role_id==2)
+                            <li class="nav-item">
+                                <a href="{{route('notices.create')}}" class="nav-link">Add class notice</a> 
+                            </li>
+                            @endif
+
+
+                       
+                           
+                      
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link  active nav-dropdown-toggle" >
+                        <i class="fa-fw fas fa-users nav-icon">
+
+                        </i>
+                        
+                       Notices
+                    </a>
+                    <ul class="nav-dropdown-items">
+                       
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">School notices</a> 
+                            </li>
+                            <li class="nav-item">
+                               <a href="#" class="nav-link">Class notices</a> 
+                            </li>
+                       
+                            @if ($loggedUser->role_id==2)
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Add class notice</a> 
+                            </li>
+                            @endif
+
+
+                       
+                           
+                      
+                    </ul>
                 </li>
         
             <li class="nav-item">
@@ -37,7 +97,7 @@
                     <i class="fa-fw fas fa-user nav-icon">
 
                     </i>
-                   Hello
+                   Class Students
                 </a>
                 
             </li>
@@ -46,7 +106,7 @@
                     <i class="fa-fw fas fa-user nav-icon">
 
                     </i>
-                   My Marks
+                   Time Table
                 </a>
                 
             </li>

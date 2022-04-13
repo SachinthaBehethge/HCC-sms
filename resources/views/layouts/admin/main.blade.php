@@ -93,6 +93,20 @@
                             </div>
                         </div>
                     </li>
+                    <li class="panel panel-default" id="dropdown">
+                        <a data-toggle="collapse" href="#dropdown-lv11">
+                            <span class="glyphicon glyphicon-home"></span>Classes <span class="caret"></span>
+                        </a>
+                        <div id="dropdown-lv11" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav">
+                                   <li><a href="{{route('admin.classes.index')}}">Classes</a></li>
+                                   <li><a href="{{route('admin.classes.create')}}">Add Class</a></li>
+                                         
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                   
                     <li class="#"><a href="{{route('admin.teachers.index')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
                     <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>

@@ -12,7 +12,7 @@
             <br>
             <div class="form-floating">
                 <label for="floating-input">Subject :</label>
-                <input type="text" id="stream" name="subject" placeholder="ex:English" class="form-control" required>
+                <input type="text" id="subject" name="subject" placeholder="ex:English" class="form-control" required>
             </div><br>
             {{-- <select class="form-control multiple-select {{ $errors->has('streams') ? 'is-invalid' : '' }}" name="streams[]" id="streams" multiple required>
                 @foreach($streams as $stream)

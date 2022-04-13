@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SiteSetting;
 use Auth;
+use App\Models\Teacher;
 
 use function GuzzleHttp\Promise\exception_for;
 
@@ -18,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['homepage', 'about', 'contact']]);
+        $this->middleware('auth', ['except' => ['homepage']]);
     
     }
 
@@ -29,14 +30,29 @@ class HomeController extends Controller
      */
     public function homepage()
     {
-        return view('dashboard');
+        
+        
+        $teachers = Teacher::all();
+        
+        foreach ($teachers as  $key => $teacher) {
+            $teacher;
+        }
+
+        return view('dashboard',compact('teacher'));
     }
 
 
 
+    // public function studentdashboard()
+    // {
+        
+    //     return view('dashboard.student.index');
+    // }
+
     public function dashboard()
     {
-        return view('student.index');
+        
+        return view('dashboard.index');
     }
 
 

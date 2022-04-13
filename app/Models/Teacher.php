@@ -16,7 +16,7 @@ class Teacher extends Model
         'email',
         'phone',
         'gender',
-        'is_clasteacher'
+        'is_classteacher'
         
         
     ];

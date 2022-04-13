@@ -33,7 +33,9 @@ Auth::routes(['verify'=>true]);
 //auth routes website
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
-    Route::get('sdashboard','HomeController@dashboard')->name('sdashboard');
+    //Route::get('studentdashboard','HomeController@studentdashboard')->name('studentdashboard');
+    Route::get('dashboard','HomeController@dashboard')->name('dashboard');
+    Route::resource('notices','NoticeController');
 });
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -42,8 +44,14 @@ Route::group(['middleware' => ['auth','verified']], function () {
 Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/logout','Auth\LoginController@logout')->name('logout');
+   
     
 });
+
+
+
+
+
     
     //admin dashboard
 Route::group(['middleware' => ['auth','admin']], function () {
@@ -59,5 +67,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('streams', 'StreamController');
     Route::resource('subjects', 'SubjectController');
     Route::post('classteacher','TeacherController@classteacher')->name('teachers.classteacher');
+    Route::resource('classes', 'classController');
 
 });

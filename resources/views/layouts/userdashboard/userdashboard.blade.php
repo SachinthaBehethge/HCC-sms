@@ -71,9 +71,13 @@
           <ul><a href="{{route('profile')}}">
             <img src="{{asset('assets/img/profile/user-avatar.png')}}" alt="" class="rounded-circle" style="height:50px; width:50px">
             {{$loggedUser->name}}</a>
-            <li></li>
+            <li>
+              
+            </li>
           </ul>
-          
+         
+
+         
         </ul>
     </header>
 

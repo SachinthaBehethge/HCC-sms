@@ -66,17 +66,26 @@
                         </li>
                        
 
-                        @elseif ($loggedUser->role_id == 3)
+                        @elseif ($loggedUser->role_id == 3 )
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('sdashboard')}}">My Dashboard</a>
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                My Dashboard
+                            </a>
                         </li>
                         @else
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">My profile</a>
                         </li>
                         @endif   
+
+                      
+                        @if ($teacher->is_classteacher==0 && $loggedUser->role_id==2) 
+                        <li class="nav-item">
+                            <a href="{{route('dashboard')}}" class="nav-link">Class Dashboard</a>
+                        </li>
+                        @endif
                         @endauth
-                             
+                        
                     
 
                     </ul>

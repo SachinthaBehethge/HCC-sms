@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\stream;
 use App\Models\subject;
+use App\Models\SubjectStream;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -40,7 +41,37 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'subject' => 'required|max:255',
+            'stream' => 'required',
+    
+
+            
+        ]);
+
+    
+       
+
+        $subject = new subject;
+        $subject->id = $request->id;
+        $subject->name = $request->subject;
+        $subject->save();
+
+        // $substream = new SubjectStream;
+        // $substream->
+
+
+
+        // $teacher = new Teacher;
+        // $teacher->id = $user->id;
+        // $teacher->name = $request->teachername;
+        // $teacher->teacher_no = $request->teacherno;
+        // $teacher->phone = $request->phone;
+        // $teacher->email = $request->email;
+        // $teacher->gender = $request->gender;
+        // $teacher->save();
+
+        // return redirect()->route('admin.teachers.index')->with('message', 'Teacher Saved successfully!');
     }
 
     /**

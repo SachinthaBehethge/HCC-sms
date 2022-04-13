@@ -3,7 +3,7 @@
 <div class="col-md-10 content">
     <div class="panel panel-default">
         <div class="panel-heading">
-          <h1 class="page-header">Students List</h1>
+          <h1 class="page-header">Teachers List</h1>
         </div>
         <div class="panel-body">
               <table class=" table table-boardered table-hover table-responssive ">
@@ -65,7 +65,7 @@
 <script>
      $(document).ready(function(){
         $('.isClassTeacher').on('change', function(){
-            if (confirm('Are you Sure you want to Change status?')) {
+            if (confirm('Are you Sure you want to change the teacher status?')) {
               
                     $(this).parents('form:first').submit();
            

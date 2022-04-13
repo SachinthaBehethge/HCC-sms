@@ -1,5 +1,5 @@
 @extends('layouts.userdashboard.userdashboard')
 
 @section('content')
-    hello
+    hello class or teacher
 @endsection
