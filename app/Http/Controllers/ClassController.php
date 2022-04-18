@@ -18,7 +18,7 @@ class ClassController extends Controller
     public function index()
     {
         $sections = section::with('classes')->get();
-        
+        dd($sections);
         //$sectionclasses = SectionClass::where('section_id','=',$section->id);
        
 
