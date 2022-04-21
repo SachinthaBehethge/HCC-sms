@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\section;
 use App\Models\Classes;
-use App\Models\SectionClass;
+use App\Models\ClassSection;
 
 class ClassController extends Controller
 {
@@ -17,12 +17,15 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $sections = section::with('classes')->get();
-        dd($sections);
-        //$sectionclasses = SectionClass::where('section_id','=',$section->id);
+        $sections=Section::has('classes')->get();
+        //$classes=classes::find($id=1);
+        //$sections = Section::with('classes')->get()->pluck('classes.name');
+        //dd($sections);
+       
+        $teachers = teacher::has('section_class')->get;
        
 
-        return view('admin.class.index' ,compact('sections'));
+        return view('admin.class.index' ,compact('sections' ,'teachers'));
     }
 
     /**
@@ -50,7 +53,7 @@ class ClassController extends Controller
     {
        
 
-        $secclass = new SectionClass;
+        $secclass = new ClassSection;
         $secclass->section_id = $request->section;
         $secclass->class_id = $request->class;
         $secclass->class_teacher_id =$request->classteacher;

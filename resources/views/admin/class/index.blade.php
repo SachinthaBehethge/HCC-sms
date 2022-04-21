@@ -3,7 +3,7 @@
 <div class="col-md-10 content">
     <div class="panel panel-default">
         <div class="panel-heading">
-          <h1 class="page-header">Teachers List</h1>
+          <h1 class="page-header">Classes List</h1>
         </div>
         <div class="panel-body">
           <a href="{{route('admin.classes.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Class</button></a><br>
@@ -31,8 +31,11 @@
                         
                       </td>
                       <td>
-                       
-                        {{$section->classes->class_name}}
+                        @foreach ($section->classes as $sectionclass )
+                            {{$sectionclass->class_name}} <br>
+                            
+                        @endforeach
+                      
                          
                     
                         
