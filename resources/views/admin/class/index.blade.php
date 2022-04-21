@@ -35,7 +35,7 @@
                             {{$sectionclass->class_name}} <br>
                             
                         @endforeach --}}
-                      {{$section->section->name}}
+                      {{$section->class->class_name}}
                          
                     
                         

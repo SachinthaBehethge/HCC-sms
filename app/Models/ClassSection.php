@@ -25,7 +25,7 @@ class ClassSection extends Model
         return $this->belongsTo(Section::class);
     }
 
-    public function classes()
+    public function class()
     {
         return $this->belongsTo(Classes::class);
     }
