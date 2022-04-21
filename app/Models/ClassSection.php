@@ -17,17 +17,19 @@ class ClassSection extends Model
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->hasOne(Teacher::class,'id','class_teacher_id');
     }
 
     public function section()
     {
-        return $this->belongsToMany(section::class);
+        return $this->belongsTo(Section::class);
     }
 
     public function classes()
     {
-        return $this->belongsToMany(Classes::class);
+        return $this->belongsTo(Classes::class);
     }
+
+    
 
 }

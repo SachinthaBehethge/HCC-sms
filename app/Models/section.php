@@ -16,7 +16,12 @@ class section extends Model
         return $this->hasOne(Student::class,'section_id');
     }
 
-    public function classes(){
-        return $this->belongsToMany(Classes::class, 'class_section', 'section_id', 'class_id');
+    // public function classes(){
+    //     return $this->belongsToMany(Classes::class, 'class_section', 'section_id', 'class_id');
+    // }
+
+    public function ClassSections(){
+        return $this->hasMany(ClassSection::class,'section_id');
     }
+
 }

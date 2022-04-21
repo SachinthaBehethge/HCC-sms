@@ -16,7 +16,7 @@
                       <th>Class Teacher</th>
                       <th>Action</th>
                   </tr>
-                 
+                
                   @foreach($sections as $key => $section)
     
                   <tr>
@@ -25,17 +25,17 @@
                      
                       <td>
                        
-                       {{$section->name}}
+                       {{$section->section->name}}
                          
                     
                         
                       </td>
                       <td>
-                        @foreach ($section->classes as $sectionclass )
+                        {{-- @foreach ($section->section->ClassSections()->get() as $sectionclass )
                             {{$sectionclass->class_name}} <br>
                             
-                        @endforeach
-                      
+                        @endforeach --}}
+                      {{$section->section->name}}
                          
                     
                         
@@ -43,7 +43,7 @@
                       <td>
                        
                         
-                         
+                         {{$section->teacher->name}}
                     
                         
                       </td>

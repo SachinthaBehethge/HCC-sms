@@ -17,15 +17,17 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $sections=Section::has('classes')->get();
+        // $sections=Section::has('classes')->get();
+        $sections = ClassSection::all();
         //$classes=classes::find($id=1);
         //$sections = Section::with('classes')->get()->pluck('classes.name');
-        //dd($sections);
+        
        
-        $teachers = teacher::has('section_class')->get;
+        // $teachers = teacher::has('section_class')->get;
+        // dd($teachers);
        
 
-        return view('admin.class.index' ,compact('sections' ,'teachers'));
+        return view('admin.class.index' ,compact('sections'));
     }
 
     /**
