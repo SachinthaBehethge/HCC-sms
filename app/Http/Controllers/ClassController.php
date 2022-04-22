@@ -21,7 +21,7 @@ class ClassController extends Controller
         //$sections=Section::has('classes')->get();
         //$classes=classes::find($id=1);
         //$sections = Section::with('classes')->get()->pluck('classes.name');
-        //dd($sections);
+        
        
         //$teachers = teacher::has('section_class')->get;
         $classes = Classes ::all(); 
