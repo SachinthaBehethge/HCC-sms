@@ -37,7 +37,7 @@
     
                     @empty
                         <tr>
-                            <td colspan="2">No Streams Found</td>
+                            <td colspan="2">No Subjects Found</td>
                         </tr>
                     @endforelse
                    

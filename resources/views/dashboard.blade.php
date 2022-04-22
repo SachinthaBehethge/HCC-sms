@@ -23,21 +23,24 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="assets/img/slider/school.jpg" class="d-block w-100 " style="height: 40% !important" alt="...">
+              <img src="assets/img/slider/school1.jpg" class="d-block w-100 " style="height: 40% !important; " alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>
               </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img src="assets/img/slider/school.jpg" class="d-block  w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h2>"අප්පමාදේන සම්පාදේථ"</h2>
-                <p>Hewaheta Central College</p>
+            <div class="carousel-item" data-bs-interval="2000" >
+              <div class="transbox" style="background-color: black !important; opacity:0.6;" >
+                <img src="assets/img/slider/school1.jpg" class="d-block  w-100"  alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>"අප්පමාදේන සම්පාදේථ"</h2>
+                  <p>Hewaheta Central College</p>
+                </div>
               </div>
+              
             </div>
             <div class="carousel-item">
-              <img src="assets/img/slider/school.jpg" class="d-block w-100" alt="...">
+              <img src="assets/img/slider/school1.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>

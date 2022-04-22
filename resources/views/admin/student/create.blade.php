@@ -19,6 +19,7 @@
                             <label for="floatingInput">Grade:</label>
                                 <br>
                                 <select id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror" >
+                                    <option value="">Select Class</option>
                                 @foreach ($classes as $class)
                                     <option value="{{($class->id)}}">{{$class->grade->name}} {{$class->class_name}}</option>
                                     
@@ -27,7 +28,7 @@
                                 </select>
                                 
                         </div>
-                        
+                        <br>
                     
                         <div class="form-floating">
                             <label for="floatingInput">Index no:</label> 
@@ -38,6 +39,7 @@
                             </span>
                             @enderror
                         </div>
+                        <br>
                         <div class="form-floating">
                             <label for="floatingInput">Student no:</label> 
                             <input type="text" id="stno" name="stno" placeholder="ex: student number" class="form-control @error('stno') is-invalid @enderror"/>
@@ -47,7 +49,7 @@
                             </span>
                             @enderror
                         </div>
-
+                        <br>
                         {{-- <div class="form-floating">            
                             <label for="floatingInput">Section:</label>
                                 <br>
@@ -69,7 +71,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                        </div>
+                        </div><br>
                         <div class="form-floating">
                             <label for="floatingInput">Full Name:</label> 
                             <input type="text" id="fullname" name="fullname" placeholder="ex: student name" class="form-control @error('fullname') is-invalid @enderror"/>
@@ -78,7 +80,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div><br>
                         <div class="form-floating">
                             <label for="floatingInput">Name With Initials:</label> 
                             <input type="text" id="initials" name="initials" placeholder="ex: M.P.K.Perera" class="form-control @error('initials') is-invalid @enderror"/>
@@ -87,7 +89,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div><br>
                        
                         <div class="form-floating">
                             <label for="floatingInput">Birth Date:</label> 
@@ -97,7 +99,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">            
                             <label for="floatingInput">Gender:</label>
                                 <br>
@@ -107,7 +109,7 @@
                                     
                                 </select>
                                 
-                        </div>
+                        </div> <br>
                         <div class="form-floating">
                             <label for="floatingInput">National ID:</label> 
                             <input type="text" id="nic" name="nic" placeholder="nic" value="DONT HAVE NIC" class="form-control @error('nic') is-invalid @enderror"/>
@@ -116,7 +118,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">            
                             <label for="floatingInput">Nationality:</label>
                                 <br>
@@ -127,7 +129,7 @@
                                     <option value="other">Other</option>
                                 </select>
                                 
-                        </div>
+                        </div> <br>
                         <div class="form-floating">
                             <label for="floatingInput">Address:</label> 
                             <input type="text" id="address" name="address" placeholder="student address" class="form-control @error('address') is-invalid @enderror"/>
@@ -136,7 +138,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="check" class="special">
                             <label class="form-check-label" for="flexSwitchCheckDefault">Has special needs</label>
@@ -160,7 +162,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">
                             <label for="floatingInput">Guardian Phone:</label> 
                             <input type="text" id="phone" name="phone" placeholder="phone" class="form-control @error('phone') is-invalid @enderror"/>
@@ -169,7 +171,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">
                             <label for="floatingInput">Guardian Email:</label> 
                             <input type="text" id="guardianemail" name="guardianemail" placeholder="ex: guardian@guardian.com" class="form-control @error('guardianemail') is-invalid @enderror"/>
@@ -178,7 +180,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">
                             <label for="floatingInput"> Distance:</label> 
                             <input type="text" id="distance" name="distance" placeholder="distance" class="form-control @error('distance') is-invalid @enderror"/>
@@ -187,7 +189,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> <br>
                         <div class="form-floating">            
                             <label for="floatingInput">Way of Coming:</label>
                                 <br>

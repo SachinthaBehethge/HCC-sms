@@ -88,7 +88,7 @@ footer{
   }
   
   .mv {
-    opacity: 1;
+    opacity: 3;
     display: block;
     width: 100%;
     height: auto;
@@ -108,7 +108,7 @@ footer{
   }
   
   .img-wrap:hover .mv {
-    opacity: 0.3;
+    opacity: 0.2;
   }
   
   .img-wrap:hover .middle {
@@ -116,7 +116,7 @@ footer{
   }
   
   .text-vm {
-    background-color: rgb(32, 161, 221);
+    background-color: rgb(221, 149, 32);
     color: white;
     font-size: 16px;
     padding: 16px 32px;
