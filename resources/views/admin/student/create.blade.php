@@ -14,6 +14,20 @@
 
 
                 <div class="form-group">
+
+                        <div class="form-floating">            
+                            <label for="floatingInput">Grade:</label>
+                                <br>
+                                <select id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror" >
+                                @foreach ($classes as $class)
+                                    <option value="{{($class->id)}}">{{$class->grade->name}} {{$class->class_name}}</option>
+                                    
+                                @endforeach    
+                                    
+                                </select>
+                                
+                        </div>
+                        
                     
                         <div class="form-floating">
                             <label for="floatingInput">Index no:</label> 
@@ -34,7 +48,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-floating">            
+                        {{-- <div class="form-floating">            
                             <label for="floatingInput">Section:</label>
                                 <br>
                                 <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" >
@@ -45,7 +59,7 @@
                                     
                                 </select>
                                 
-                        </div>
+                        </div> --}}
 
                         <div class="form-floating">
                             <label for="floatingInput">Email:</label> 
@@ -230,6 +244,14 @@
         }
     });
 
+    $("#s").hide();
+    $("#check").click(function() {
+        if($(this).is(":checked")) {
+            $("#special").show();
+        } else {
+            $("#special").hide();
+        }
+    });
    
         
 </script>

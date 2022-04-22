@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStreamsTable extends Migration
+class CreateClassTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateStreamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('streams', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->id('id');
-            $table->string('stream_name');
+            $table->foreignId('grade_id')->references('id')->on('grades')->onDelete('CASCADE');
+            $table->string('class_name');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateStreamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('streams');
+        Schema::dropIfExists('classes');
     }
 }

@@ -10,8 +10,8 @@
            @csrf
             <br>
             <div class="form-floating">
-                <label for="floating-input">section</label>
-                <input type="text" id="section" name="section" placeholder="ex: grade 6" class="form-control" required>
+                <label for="floating-input">Section :</label>
+                <input type="text" id="section" name="section" placeholder="ex: O/L" class="form-control" required>
             </div>
             <br>
             <input type="submit" value="Save" class="btn btn-warning pull-right">

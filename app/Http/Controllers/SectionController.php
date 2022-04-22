@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\section;
+use App\Models\stream;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -14,8 +15,9 @@ class SectionController extends Controller
      */
     public function index()
     {
-    
         $sections = Section::all();
+
+
         return view('admin.sections.index',compact('sections'));
     }
 
@@ -37,14 +39,13 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-         
         $request->validate([
             'section' => 'required|max:100',
            
         ]);
 
         $section = new Section;
-        $section->name = $request->section;
+        $section->section_name = $request->section;
         $section->save();
 
         return redirect()->route('admin.sections.index')->with('message', 'Section Added successfully!');

@@ -12,12 +12,12 @@
            
 
             <div class="form-floating">            
-                <label for="floatingInput">Section:</label>
+                <label for="floatingInput">Grade :</label>
                     <br>
-                    <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" >
-                        <option value="" selected>select class Sectionr</option>
-                        @foreach ($sections as $section)
-                        <option value="{{($section->id)}}">{{$section->name}}</option>
+                    <select id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror" >
+                        <option value="" selected>select Grade</option>
+                        @foreach ($grades as $grade)
+                        <option value="{{($grade->id)}}">{{$grade->name}}</option>
                         
                     @endforeach    
                         
@@ -26,21 +26,21 @@
             </div>
             <br>
             <div class="form-floating">            
-                <label for="floatingInput">class:</label>
+                <label for="floatingInput">class :</label>
                     <br>
                     <select id="class" name="class" class="form-control @error('class') is-invalid @enderror" >
                         <option value="" selected>select class</option>   
-                    @foreach ($classes as $class)
-                        <option value="{{($class->id)}}">{{$class->class_name}}</option>
-                        
-                    @endforeach    
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
                         
                     </select>
                     
             </div>
             <br>
             <div class="form-floating">            
-                <label for="floatingInput">Class Teacher:</label>
+                <label for="floatingInput">Class Teacher :</label>
                     <br>
                     <select id="classteacher" name="classteacher" class="form-control @error('classteacher') is-invalid @enderror" >
                         <option value="" selected>select class teacher</option>

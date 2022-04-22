@@ -63,7 +63,7 @@
           <div class="row justify-content-center ">
               <div class="col-md-4 col-lg-4 image-element">
                   <div class="img-wrap " style="height:auto; width: auto;">
-                      <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                      <img class="vision mv" src="assets/img/slider/marks.jpg" style="height:auto; width: 100%;" alt="" title="">
                       <div class="middle">
                         <div class="text-vm">MARKS ANALYSIS</div>
                       </div>
@@ -72,7 +72,7 @@
               </div>
               <div class="col-md-4 col-lg-4 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
-                    <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                    <img class="vision mv" src="assets/img/slider/info.jpg" style="height:auto; width: 100%;" alt="" title="">
                     <div class="middle">
                       <div class="text-vm">STUDENT DETAILS</div>
                     </div>
@@ -81,7 +81,7 @@
               </div>
               <div class="col-md-4 col-lg-4 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
-                    <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                    <img class="vision mv" src="assets/img/slider/notice.jpg" style="height:auto; width: 100%;" alt="" title="">
                     <div class="middle">
                       <div class="text-vm">ADD NOTIICES</div>
                     </div>
@@ -92,7 +92,7 @@
           <div class="row justify-content-center ">
             <div class="col-md-4 col-lg-4 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
-                    <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                    <img class="vision mv" src="assets/img/slider/time table.jpg" style="height:auto; width: 100%;" alt="" title="">
                     <div class="middle">
                       <div class="text-vm">CHECK TIMETABLES</div>
                     </div>
@@ -101,7 +101,7 @@
             </div>
             <div class="col-md-4 col-lg-4 image-element">
               <div class="img-wrap " style="height:auto; width: auto;">
-                  <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                  <img class="vision mv" src="assets/img/slider/exam.jpg" style="height:auto; width: 100%;" alt="" title="">
                   <div class="middle">
                     <div class="text-vm">EXAMS CALENDER</div>
                   </div>

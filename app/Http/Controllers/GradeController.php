@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\stream;
+use App\Models\grade;
+use App\Models\section;
 use Illuminate\Http\Request;
 
-class StreamController extends Controller
+class GradeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,9 @@ class StreamController extends Controller
      */
     public function index()
     {
-        $streams = Stream::all();
-
-
-        return view('admin.subjectstream.index',compact('streams'));
+    
+        $grades = Grade::all();
+        return view('admin.grades.index',compact('grades'));
     }
 
     /**
@@ -27,7 +27,8 @@ class StreamController extends Controller
      */
     public function create()
     {
-        return view('admin.subjectstream.create');
+        $sections = Section::all();
+        return view('admin.grades.create',compact('sections'));
     }
 
     /**
@@ -38,25 +39,27 @@ class StreamController extends Controller
      */
     public function store(Request $request)
     {
+         
         $request->validate([
-            'stream' => 'required|max:100',
+            'grade' => 'required|max:100',
            
         ]);
 
-        $stream = new Stream;
-        $stream->stream_name = $request->stream;
-        $stream->save();
+        $grade = new Grade;
+        $grade->section_id = $request->section;
+        $grade->name = $request->grade;
+        $grade->save();
 
-        return redirect()->route('admin.streams.index')->with('message', 'Stream Added successfully!');
+        return redirect()->route('admin.grades.index')->with('message', 'Grade Added successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\stram  $stram
+     * @param  \App\Models\grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function show(stream $stream)
+    public function show(grade $grade)
     {
         //
     }
@@ -64,10 +67,10 @@ class StreamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\stream  $stream
+     * @param  \App\Models\grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function edit(stream $stream)
+    public function edit(grade $grade)
     {
         //
     }
@@ -76,10 +79,10 @@ class StreamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\stream  $stream
+     * @param  \App\Models\grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, stream $stream)
+    public function update(Request $request, grade $grade)
     {
         //
     }
@@ -87,10 +90,10 @@ class StreamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\stream  $stream
+     * @param  \App\Models\grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(stream $stream)
+    public function destroy(grade $grade)
     {
         //
     }

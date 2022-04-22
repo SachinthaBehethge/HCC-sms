@@ -62,9 +62,9 @@ Route::group(['middleware' => ['auth','admin']], function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function () {
     
     Route::resource('student', 'StudentController');
-    Route::resource('sections', 'SectionController');
+    Route::resource('grades', 'GradeController');
     Route::resource('teachers', 'teacherController');
-    Route::resource('streams', 'StreamController');
+    Route::resource('sections', 'SectionController');
     Route::resource('subjects', 'SubjectController');
     Route::post('classteacher','TeacherController@classteacher')->name('teachers.classteacher');
     Route::resource('classes', 'classController');

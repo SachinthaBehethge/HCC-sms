@@ -26,5 +26,9 @@ class Teacher extends Model
         return $this->hasOne(User::class,'id');
     }
 
+    public function class()
+    {
+        return $this->hasOne(Classes::class);
+    }
 
 }

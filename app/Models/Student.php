@@ -42,9 +42,10 @@ class Student extends Model
         return $this->hasOne(User::class,'id');
     }
 
-    public function section()
+    public function class()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Classes::class);
     }
    
+    
 }

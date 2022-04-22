@@ -11,10 +11,20 @@ class Classes extends Model
 
     protected $fillable = [
         'id',
-        'class_name'
+        'section_id',
+        'class_name',
+        'teacher_id'
     ];
 
-    public function section(){
-        return $this->belongsToMany(section::class);
+    public function grade(){
+        return $this->belongsTo(Grade::class);
+    }
+
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
+
+    public function teacher(){
+        return $this->belongsTo(Teacher::class);
     }
 }

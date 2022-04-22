@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassTable extends Migration
+class AddClassIdColumnToStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateClassTable extends Migration
      */
     public function up()
     {
-        Schema::create('classes', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('class_name');
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            
+            $table->bigInteger('class_id')->references('id')->on('classes')->onDelete('CASCADE');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateClassTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classes');
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropColumn('class_id');
+        });
     }
 }

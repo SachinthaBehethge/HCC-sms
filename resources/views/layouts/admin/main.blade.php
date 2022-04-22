@@ -109,8 +109,8 @@
                     </li>
                   
                     <li class="#"><a href="{{route('admin.teachers.index')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
-                    <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>
-                    <li class="#"><a href="{{route('admin.streams.index')}}"><i class="feather-16" data-feather="streams"></i><span class="glyphicon glyphicon-th"></span> Streams</a></li>
+                    <li class="#"><a href="{{route('admin.grades.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Grades</a></li>
+                    <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="streams"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>
                     <li class="#"><a href="{{route('admin.subjects.index')}}"><i class="feather-16" data-feather="subjects"></i><span class="glyphicon glyphicon-th"></span> Subjects</a></li>
                                       
 

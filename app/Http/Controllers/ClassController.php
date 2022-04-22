@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\section;
 use App\Models\Classes;
+use App\Models\grade;
 use App\Models\ClassSection;
 
 class ClassController extends Controller
@@ -17,15 +18,16 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $sections=Section::has('classes')->get();
+        //$sections=Section::has('classes')->get();
         //$classes=classes::find($id=1);
         //$sections = Section::with('classes')->get()->pluck('classes.name');
         //dd($sections);
        
-        $teachers = teacher::has('section_class')->get;
+        //$teachers = teacher::has('section_class')->get;
+        $classes = Classes ::all(); 
        
 
-        return view('admin.class.index' ,compact('sections' ,'teachers'));
+        return view('admin.class.index', compact('classes') );
     }
 
     /**
@@ -36,11 +38,10 @@ class ClassController extends Controller
     public function create()
     {
         $teachers = Teacher::all();
-        $classes = Classes::all();
-        $sections = Section::all();
+        $grades = Grade::all();
 
 
-        return view('admin.class.create', compact('sections','classes','teachers'));
+        return view('admin.class.create', compact('grades','teachers'));
     }
 
     /**
@@ -51,13 +52,13 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-       
+        
 
-        $secclass = new ClassSection;
-        $secclass->section_id = $request->section;
-        $secclass->class_id = $request->class;
-        $secclass->class_teacher_id =$request->classteacher;
-        $secclass->save();
+        $class = new Classes;
+        $class->grade_id = $request->grade;
+        $class->class_name = $request->class;
+        $class->teacher_id =$request->classteacher;
+        $class->save();
 
         $teacher=Teacher::find($request->classteacher);
         $teacher->is_classteacher = 0;

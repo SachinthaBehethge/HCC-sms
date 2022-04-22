@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
-use App\Models\section;
+use App\Models\Classes;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -29,9 +29,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $sections = Section::all();
+        $classes = Classes::all();
 
-        return view('admin.student.create',compact('sections'));
+        return view('admin.student.create',compact('classes'));
     }
 
     /**
