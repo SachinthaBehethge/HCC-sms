@@ -10,23 +10,43 @@
         <form action="{{route('admin.subjects.store')}}" method="POST"  enctype="multipart/form-data">
            @csrf
             <br>
-            <div class="form-floating">
-                <label for="floating-input">Subject :</label>
-                <input type="text" id="subject" name="subject" placeholder="ex:English" class="form-control" required>
-            </div><br>
-            {{-- <select class="form-control multiple-select {{ $errors->has('streams') ? 'is-invalid' : '' }}" name="streams[]" id="streams" multiple required>
-                @foreach($streams as $stream)
-                    <option value="{{ $stream->id }}" {{ in_array($stream->id, old('streams', [])) ? 'selected' : '' }}>{{ $stream->stream_name }}</option>
-                @endforeach
-            </select> --}}
-            <select class="form-control multiple-select " name="streams[]" id="streams" multiple>
+
+            <div class="form-floating">            
                 
-                @foreach ($streams as $stream)
-                 <option value="{{($stream->id)}}">{{$stream->stream_name}}</option>
-                    
-                @endforeach
-            </select>
-            <br>
+                <label for="floating-input">Subject Name :</label>
+                <input type="text" id="subject" name="subject" placeholder="ex: Grade 6 English" class="form-control @error('subject') is-invalid @enderror" required>
+               
+            </div> <br>
+
+            <div class="form-floating">            
+                <label for="floatingInput">Grade :</label>
+                <br>
+                <select id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror" >
+                    <option value="" selected>Select Grade</option>
+                    @foreach ($grades as $grade)
+                    <option value="{{($grade->id)}}">{{$grade->name}}</option>
+                        
+                    @endforeach    
+                        
+                </select>
+            </div> <br>
+
+            <div class="form-floating">            
+                <label for="floatingInput">Subject Category :</label>
+                <br>
+                <select id="category" name="category" class="form-control @error('category') is-invalid @enderror" >
+                    <option value="" selected>Select Subject Category</option>
+                    @foreach ($categories as $category)
+                    <option value="{{($category->id)}}">{{$category->subject_category}}</option>
+                        
+                    @endforeach    
+                        
+                </select>
+            </div> <br>
+
+
+           
+           
             <input type="submit" value="Save" class="btn btn-warning pull-right">
 
         </form>

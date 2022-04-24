@@ -80,10 +80,10 @@
                     <li class=""><a href="{{route('admin')}}"><i class="feather-16" data-feather="home"></i><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
                    
                     <li class="panel panel-default" id="dropdown">
-                        <a data-toggle="collapse" href="#dropdown-lvl2">
-                            <span class="glyphicon glyphicon-ok"></span>Students <span class="caret"></span>
+                        <a data-toggle="collapse" href="#dropdown-lvl1">
+                            <span class="glyphicon glyphicon-user"></span>Students <span class="caret"></span>
                         </a>
-                        <div id="dropdown-lvl2" class="panel-collapse collapse">
+                        <div id="dropdown-lvl1" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
                                    <li><a href="{{route('admin.student.index')}}">Students List</a></li>
@@ -94,15 +94,28 @@
                         </div>
                     </li>
                     <li class="panel panel-default" id="dropdown">
-                        <a data-toggle="collapse" href="#dropdown-lv11">
+                        <a data-toggle="collapse" href="#dropdown-lv12">
                             <span class="glyphicon glyphicon-home"></span>Classes <span class="caret"></span>
                         </a>
-                        <div id="dropdown-lv11" class="panel-collapse collapse">
+                        <div id="dropdown-lv12" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
                                    <li><a href="{{route('admin.classes.index')}}">Classes</a></li>
                                    <li><a href="{{route('admin.classes.create')}}">Add Class</a></li>
                                          
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="panel panel-default" id="dropdown">
+                        <a data-toggle="collapse" href="#dropdown-lvl3">
+                            <span class="glyphicon glyphicon-list-alt"></span> Term Tests <span class="caret"></span>
+                        </a>
+                        <div id="dropdown-lvl3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="{{route('admin.termtests.index')}}">Term Tests</a></li>
+                                    <li><a href="{{route('admin.termtests.create')}}">Create Term Test</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -114,18 +127,7 @@
                     <li class="#"><a href="{{route('admin.subjects.index')}}"><i class="feather-16" data-feather="subjects"></i><span class="glyphicon glyphicon-th"></span> Subjects</a></li>
                                       
 
-                    <li class="panel panel-default" id="dropdown">
-                        <a data-toggle="collapse" href="#dropdown-lvl1">
-                            <span class="glyphicon glyphicon-list-alt"></span> Subjects <span class="caret"></span>
-                        </a>
-                        <div id="dropdown-lvl1" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav navbar-nav">
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
+                   
 
 
 

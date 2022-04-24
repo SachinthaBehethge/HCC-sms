@@ -68,5 +68,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('subjects', 'SubjectController');
     Route::post('classteacher','TeacherController@classteacher')->name('teachers.classteacher');
     Route::resource('classes', 'classController');
+    Route::resource('termtests', 'TermtestController');
 
 });

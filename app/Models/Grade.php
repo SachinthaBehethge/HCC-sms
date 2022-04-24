@@ -11,10 +11,7 @@ class grade extends Model
     protected $fillable = ['name'];
      
 
-    public function student()
-    {
-        return $this->hasOne(Student::class,'section_id');
-    }
+    
 
     public function classes(){
         return $this->hasMany(Classes::class);
@@ -22,5 +19,9 @@ class grade extends Model
 
     public function section(){
         return $this->belongsTo(Section::class);
+    } 
+
+    public function subjects(){
+        return $this->belongsToMany(subject::class);
     } 
 }

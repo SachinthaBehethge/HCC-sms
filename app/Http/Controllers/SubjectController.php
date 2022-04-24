@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\stream;
+use App\Models\grade;
 use App\Models\subject;
+use App\Models\subjectcategory;
 use App\Models\SubjectStream;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,10 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $streams = Stream::all();
-        return view('admin.subject.create',compact('streams'));
+        $grades = Grade::all();
+        $categories = subjectcategory::all();
+
+        return view('admin.subject.create',compact('grades','categories'));
     }
 
     /**
@@ -43,20 +46,22 @@ class SubjectController extends Controller
     {
         $request->validate([
             'subject' => 'required|max:255',
-            'stream' => 'required',
-    
+            'grade' => 'required',
 
-            
         ]);
-
+       
     
        
 
-        $subject = new subject;
-        $subject->id = $request->id;
-        $subject->name = $request->subject;
+       
+        $subject = new Subject;
+        $subject->subject_name = $request->subject;
+        $subject->grade_id = $request->grade;
+        $subject->subject_category_id = $request->category;
         $subject->save();
 
+
+        
         // $substream = new SubjectStream;
         // $substream->
 
@@ -71,7 +76,7 @@ class SubjectController extends Controller
         // $teacher->gender = $request->gender;
         // $teacher->save();
 
-        // return redirect()->route('admin.teachers.index')->with('message', 'Teacher Saved successfully!');
+        return redirect()->route('admin.subjects.index')->with('message', 'Subject Saved successfully!');
     }
 
     /**

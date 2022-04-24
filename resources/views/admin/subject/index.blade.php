@@ -9,22 +9,25 @@
             <table class=" table table-dark table-hover table-responsive ">
                 <tr>
                     <th>No</th>
-                    <th>Section</th>
+                    <th>Subject</th>
+                    <th>Grade</th>
                     <th>Action</th>
                 </tr>
-                @forelse($subjects as $subject)
+                @forelse($subjects as $key => $subject)
     
                         <tr>
-                            <td>{{$subject->id }}</td>
-                            <td>{{$subject->name}}</td>
-                            {{-- <td> <a href="{{ route('#', $section->id) }}" class="btn btn-xs btn-primary">Edit</a> --}}
+                            <td>{{$key+1}}</td>
+                            <td>{{$subject->subject_name}}</td>
+                            <td>{{$subject->grade->name}}</td>
                             
-                            {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
+                            <td> <a href="{{ route('admin.subjects.edit', $subject->id) }}" class="btn btn-success col-md-6" style="margin-right: 2px">Edit</a> 
+                            
+                            <form method="POST" action="{{route('admin.sections.destroy', $subject->id)}}">
                                 @csrf
                                 {{method_field('DELETE')}}
-                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
-                                    class="btn btn-xs btn-danger" />
-                            </form> --}}
+                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this Subject?')"
+                                    class="btn  btn-danger col-md-5" />
+                            </form>
                                 
                             <td>
 
