@@ -33,9 +33,13 @@ Auth::routes(['verify'=>true]);
 //auth routes website
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
-    //Route::get('studentdashboard','HomeController@studentdashboard')->name('studentdashboard');
     Route::get('dashboard','HomeController@dashboard')->name('dashboard');
     Route::resource('notices','NoticeController');
+    Route::resource('studentdashboard','StudentdashboardController');
+    Route::get('notices','StudentdashboardController@notice')->name('notice');
+    Route::get('subjects','StudentdashboardController@subject')->name('subjects');
+    Route::get('exams','StudentdashboardController@exam')->name('exams');
+
 });
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

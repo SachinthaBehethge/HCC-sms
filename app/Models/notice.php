@@ -12,10 +12,15 @@ class notice extends Model
     protected $fillable = [
         'id',
         'title',
-        'body'
+        'body',
+        'class_id'
         
         
         
     ];
+
+    public function class(){
+        return $this->belongsTo(Classes::class);
+    }
 
 }

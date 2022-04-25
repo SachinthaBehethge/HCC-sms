@@ -6,6 +6,8 @@
         <h1 class="page-header">Subjects</h1>
       </div>
       <div class="panel-body">
+        <a href="{{route('admin.subjects.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Subject</button></a>
+        <br>
             <table class=" table table-dark table-hover table-responsive ">
                 <tr>
                     <th>No</th>
@@ -46,7 +48,6 @@
                    
             </table>
        
-            <a href="{{route('admin.subjects.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Subject</button></a>
 
     </div>
   </div>

@@ -11,6 +11,6 @@ class subjectcategory extends Model
 
     public function subjects()
     {
-        return $this->belongsTo(subject::class);
+        return $this->belongsTo(Subject::class);
     }
 }

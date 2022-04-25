@@ -12,6 +12,8 @@
         </form>
       </div>
       <div class="panel-body">
+        <a href="{{route('admin.student.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Student</button></a>
+        <br>
             <table class=" table table-boardered table-hover table-responssive ">
                 <tr>
                     <th>#</th>
@@ -61,7 +63,6 @@
                    
             </table>
        
-            <a href="{{route('admin.student.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Student</button></a>
 
     </div>
   </div>

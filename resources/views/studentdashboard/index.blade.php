@@ -12,7 +12,7 @@ $loggedUser = Auth::user();
       <div class="panel-heading">
           <h1 class="page-header">
            
-            {{$teacher->class->grade->name}}-{{$teacher->class->class_name}}
+            {{$student->name_with_ini}}'s Dashboard
          
            
           </h1>
@@ -24,18 +24,21 @@ $loggedUser = Auth::user();
          
 
           
-          <div class="card  col-md-12 bg-success mr-3 ml-3" style="width: 18rem;">
+          <div class="card  col-md-12 bg-primary mr-3 ml-3" style="width: 18rem;">
             <div class="card-body">
               <h2>
-                Welcome to {{$teacher->class->grade->name}}-{{$teacher->class->class_name}} class !
+                Welcome {{$student->name_with_ini}}   !
               </h2>
              <br> <br>
              <h4>
-                Class Teacher : {{$teacher->name}} 
+                 Name : {{$student->fullname}}
              </h4>
-             <br>
              <h4>
-                No of Students : {{$teacher->class->student->count()}}
+                Class  : {{$student->class->grade->name}}-{{$student->class->class_name}} 
+             </h4>
+             
+             <h4>
+                Class Teacher : {{$student->class->teacher->name}}
              </h4>
             </div>
           </div>     

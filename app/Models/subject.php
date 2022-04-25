@@ -12,17 +12,17 @@ class subject extends Model
     //protected $primaryKey = 'subject_category_id';
 
 
-    public function termtests()
+    public function termtest()
     {
-        return $this->hasOne(termtest::class);
+        return $this->hasOne(Termtest::class);
     }
 
     public function subjectcategory()
     {
-        return $this->belongsTo(subjectcategory::class,'subject_category_id');
+        return $this->belongsTo(Subjectcategory::class,'subject_category_id');
     }
 
     public function grade(){
-        return $this->belongsTo(grade::class);
+        return $this->belongsTo(Grade::class);
     } 
 }

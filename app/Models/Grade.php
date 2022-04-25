@@ -22,6 +22,6 @@ class grade extends Model
     } 
 
     public function subjects(){
-        return $this->belongsToMany(subject::class);
+        return $this->hasMany(Subject::class);
     } 
 }

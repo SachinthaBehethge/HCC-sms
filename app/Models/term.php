@@ -12,6 +12,6 @@ class term extends Model
     
     public function termtests()
     {
-        return $this->belongsTo(termtest::class,'term_id');
+        return $this->belongsTo(Termtest::class,'term_id');
     }
 }

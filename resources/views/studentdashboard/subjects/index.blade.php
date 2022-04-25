@@ -4,31 +4,29 @@
 <div class="col-md-12 content">
     <div class="panel panel-default">
       <div class="panel-heading">
-          <h1 class="page-header">Class Notices</h1>
+          <h1 class="page-header">My Subjects </h1>
       </div>
       <div class="panel-body">
         <br>
         <hr>
 
         <div class="row">
-          @forelse($notices as $key => $notice)
+          @forelse($subjects as $key => $subject)
 
         
-          <div class="card  col-md-3 bg-success mr-3 ml-3" style="width: 18rem;">
+          <div class="card  col-md-5 bg-success mr-3 ml-3" style="width: 18rem;">
             <div class="card-body">
-              <small class="card-subtitle mb-2 text-muted  "> updated at : {{$notice->updated_at}}</small>
-              <h3 class="card-title ">{{$key+1}} - {{$notice->title}} 
+              {{-- <small class="card-subtitle mb-2 text-muted  "> updated at : {{$notice->updated_at}}</small> --}}
+              <h3 class="card-title ">{{$key+1}} -{{$subject->subject_name}} 
 
                
-                <i class="fa fa-trash pull-right " aria-hidden="true" type="button" style="color: red"></i>
                   
+
                 
               </h3>
               
-              <p class="card-text text-center">{{$notice->body}}</p>
-              <br>
+              {{-- <p class="card-text text-center">{{$notice->body}}</p> --}}
               
-              <button class="btn-primary col-md-12">update notice</button>
               
              
             </div>

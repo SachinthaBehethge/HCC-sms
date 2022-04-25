@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\notice;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\Framework\Error\Notice as ErrorNotice;
 
 class NoticeController extends Controller
@@ -14,8 +17,11 @@ class NoticeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $notices = Notice::all();
+    {   
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $notices = $teacher->class->notices;
+        //dd($notices);
 
         return view('dashboard.notices.index',compact('notices'));
     }
@@ -27,8 +33,7 @@ class NoticeController extends Controller
      */
     public function create()
     {
-      
-
+    
         return view('dashboard.notices.create');
     }
 
@@ -45,10 +50,14 @@ class NoticeController extends Controller
             'noticeBody' => 'required|',
            
         ]);
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        
 
         $notice = new Notice;
         $notice->title = $request->notice_title;
         $notice->body = $request->noticeBody;
+        $notice->class_id = $teacher->class->id;
         $notice->save();
 
         return redirect()->route('notices.index')->with('message', 'Notice Added successfully!');
@@ -97,5 +106,12 @@ class NoticeController extends Controller
     public function destroy(notice $notice)
     {
         //
+    }
+
+    public function student()
+    {
+       
+        
+        return view('dashboard.student.index');
     }
 }

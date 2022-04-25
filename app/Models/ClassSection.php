@@ -22,7 +22,7 @@ class ClassSection extends Model
 
     public function section()
     {
-        return $this->belongsToMany(section::class);
+        return $this->belongsToMany(Section::class);
     }
 
     public function classes()

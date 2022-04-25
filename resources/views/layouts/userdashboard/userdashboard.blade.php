@@ -82,7 +82,13 @@
     </header>
 
     <div class="app-body">
+      @if ($loggedUser->role_id ==2)
         @include('partials.menu')
+        
+      @elseif ($loggedUser->role_id == 3)
+        @include('partials.studentmenu')
+
+      @endif
         <main class="main">
 
 

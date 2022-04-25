@@ -20,11 +20,15 @@ class Classes extends Model
         return $this->belongsTo(Grade::class);
     }
 
-    public function students(){
+    public function student(){
         return $this->hasMany(Student::class);
     }
 
     public function teacher(){
-        return $this->belongsTo(Teacher::class);
+        return $this->belongsTo(Teacher::class,'teacher_id');
+    }
+
+    public function notices(){
+        return $this->hasMany(Notice::class);
     }
 }

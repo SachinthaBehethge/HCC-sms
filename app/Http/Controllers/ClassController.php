@@ -24,6 +24,8 @@ class ClassController extends Controller
         
        
         //$teachers = teacher::has('section_class')->get;
+
+        
         $classes = Classes ::all(); 
        
 

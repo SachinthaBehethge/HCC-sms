@@ -5,11 +5,21 @@
         <ul class="nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="{{route('dashboard')}}">
+                <a class="nav-link " href="{{route('studentdashboard.index')}}">
                     <i class="fa-fw fas fa fa-dashboard nav-icon">
 
                     </i>
                    Dashboard
+                </a>
+                
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="{{route('profile')}}">
+                    <i class="fa-fw fas fa-user nav-icon">
+
+                    </i>
+                   My Profile
                 </a>
                 
             </li>
@@ -55,27 +65,26 @@
                                 <a href="#" class="nav-link">School notices</a> 
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('notices.create')}}" class="nav-link">Add class notice</a> 
-                            </li>
-                            <li class="nav-item">
-                               <a href="{{route('notices.index')}}" class="nav-link">Class notices</a> 
+                               <a href="{{route('notice')}}" class="nav-link">Class notices</a> 
                             </li>
                        
-                            
                            
-                            
-                            
-  
+
+
+                       
+                           
+                      
                     </ul>
                 </li>
-                
-                <li class="nav-item nav-dropdown">
+               
+
+                {{-- <li class="nav-item nav-dropdown">
                     <a class="nav-link  active nav-dropdown-toggle" >
                         <i class="fa-fw fas fa-users nav-icon">
 
                         </i>
                         
-                       Notices
+                       Students
                     </a>
                     <ul class="nav-dropdown-items">
                        
@@ -89,7 +98,7 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Add class notice</a> 
                             </li>
-                            
+                          
 
 
                        
@@ -97,13 +106,25 @@
                       
                     </ul>
                 </li>
+             --}}
+             <li class="nav-item">
+                <a class="nav-link " href="{{route('subjects')}}">
+                    <i class="fa-fw fas fa-book nav-icon">
+                        
+                    </i>
+                    
+                    My Subjects
+                </a>
+                
+            </li>
         
             <li class="nav-item">
                 <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
+                    <i class="fa-fw fas fa-book nav-icon">
+                        
                     </i>
-                   Class Students
+                    
+                   Report Card
                 </a>
                 
             </li>
@@ -117,23 +138,15 @@
                 
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
+                <a class="nav-link " href="{{route('exams')}}">
+                    <i class="fa-fw fas fa fa-calnder nav-icon">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
                     </i>
-                   School Notices
+                   Exam Calender
                 </a>
                 
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   class Notices
-                </a>
-                
-            </li>
+            
             <li class="nav-item">
                 <a class="nav-link " href="#">
                     <i class="fa-fw fas fa-user nav-icon">

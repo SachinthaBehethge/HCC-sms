@@ -68,7 +68,7 @@
 
                         @elseif ($loggedUser->role_id == 3 )
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">
+                            <a class="nav-link" href="{{route('studentdashboard.index')}}">
                                 My Dashboard
                             </a>
                         </li>
@@ -79,7 +79,7 @@
                         @endif   
 
                       
-                        @if ($teacher->is_classteacher==0 && $loggedUser->role_id==2) 
+                        @if ($loggedUser->teacher->is_classteacher==0 && $loggedUser->role_id==2) 
                         <li class="nav-item">
                             <a href="{{route('dashboard')}}" class="nav-link">Class Dashboard</a>
                         </li>
