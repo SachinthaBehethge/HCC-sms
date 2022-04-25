@@ -14,7 +14,7 @@ class subject extends Model
 
     public function termtest()
     {
-        return $this->hasOne(Termtest::class);
+        return $this->hasMany(Termtest::class,'subject_id');
     }
 
     public function subjectcategory()
