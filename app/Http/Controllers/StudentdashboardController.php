@@ -41,10 +41,10 @@ class StudentdashboardController extends Controller
     {   
         $user = Auth::user();
         $student = Student::find($user->id);
-        $termtests = $student->class->grade->subject->termtests;
-        dd($termtests);
+        $subjects = $student->class->grade->subjects;
+        //dd($subjects);
 
-        return view('studentdashboard.exams.index',compact('termtests'));
+        return view('studentdashboard.exams.index',compact('subjects'));
     }
 
 }
