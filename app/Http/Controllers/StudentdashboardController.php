@@ -47,7 +47,7 @@ class StudentdashboardController extends Controller
                         ->join('subjects','termtests.subject_id','=','subjects.id')
                         ->join('grades','subjects.grade_id','=','grades.id')
                         ->join('classes','classes.grade_id','=','grades.id')
-                        ->join('students','students.class_id','=','classes.id')->where('students.id',$student->id)->get();
+                        ->join('students','students.class_id','=','classes.id')->where('students.id',$student->id)->groupBy('termtests.id')->get();
 
 
         dd($termtests);
