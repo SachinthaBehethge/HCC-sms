@@ -43,16 +43,17 @@ class StudentdashboardController extends Controller
         $user = Auth::user();
         $student = Student::find($user->id);
         // $termtests = $student->class->grade->subject->termtests;
-        $termtests =  termtest::select('subject_name','test_date','start_time','end_time')
+        $termtests =  termtest::select('term_name','subject_name','test_date','start_time','end_time')
+                        ->join('terms','termtests.term_id','=','terms.id')   
                         ->join('subjects','termtests.subject_id','=','subjects.id')
                         ->join('grades','subjects.grade_id','=','grades.id')
                         ->join('classes','classes.grade_id','=','grades.id')
-                        ->join('students','students.class_id','=','classes.id')->where('students.id',$student->id)->groupBy('termtests.id')->get();
+                        ->join('students','students.classes_id','=','classes.id')->where('students.id',$student->id)->groupBy('termtests.id')->get();
 
 
-        dd($termtests);
+        //dd($termtests);
 
-        return view('studentdashboard.exams.index',compact('subjects'));
+        return view('studentdashboard.exams.index',compact('termtests'));
     }
 
 }

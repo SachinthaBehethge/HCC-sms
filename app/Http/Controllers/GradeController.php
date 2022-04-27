@@ -56,44 +56,53 @@ class GradeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\grade  $grade
+     * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function show(grade $grade)
+    public function show(Grade $grade)
     {
-        //
+        $grade = Grade::findorFail($grade->id);
+
+        return view('admin.grades.show',compact('grade'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\grade  $grade
+     * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function edit(grade $grade)
+    public function edit(Grade $grade)
     {
-        //
+        $sections = Section::all();
+        $grade = Grade::findorFail($grade->id);
+
+        return view('admin.grades.edit',compact('grade','sections'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\grade  $grade
+     * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, grade $grade)
+    public function update(Request $request, Grade $grade)
     {
-        //
+        $grade->section_id = $request->section;
+        $grade->name = $request->grade;
+        $grade->save();
+
+        return redirect()->route('admin.grades.index')->with('message', 'Grade updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\grade  $grade
+     * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(grade $grade)
+    public function destroy(Grade $grade)
     {
         //
     }

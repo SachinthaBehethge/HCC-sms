@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead" style="background-image: url('assets/img/slider/school.jpg')">
+    <header class="masthead " style="background-image: url('assets/img/slider/school.jpg')">
       <div class="container position-relative px-4 px-lg-5">
-          <div class="row gx-4 gx-lg-5 justify-content-center">
-              <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="row gx-4 gx-lg-5 sm-12 justify-content-center">
+              <div class="col-md-10 col-sm-12 col-lg-8 col-xl-7">
                   <div class="site-heading">
                       <h1>HCC-Student Management System </h1>
-                      <span class="subheading text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam vitae obcaecati dolores sed veniam in atque minima sunt quasi dolor, esse natus ea, mollitia architecto rem quae quaerat nihil a.</span>
+                      <span class=" subheading text-center text-light">
+                        This is the school management system of Hewaheta Central College - Kandy. This system is developed for manage students and their information. This system is consistented of class dashboards, student dashboards and admin panels. So that they make it easier to control the system and system related issues comfortably.
+                      </span>
                   </div>
               </div>
           </div>

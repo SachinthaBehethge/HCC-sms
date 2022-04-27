@@ -13,34 +13,34 @@
                 </a>
                 
             </li>
-                {{-- <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" href=>
-                        <i class="fa-home nav-icon">
-                            
-                        </i>
-                       Dashboard
-                    </a>
-                    <ul class="nav-dropdown-items">
-                       
-                            <li class="nav-item">
-                                
-                            </li>
-                       
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  active nav-dropdown-toggle" >
+                    <i class="fa-fw fas fa-users nav-icon">
+
+                    </i>
+                    
+                   Students
+                </a>
+                <ul class="nav-dropdown-items">
                    
-                            <li class="nav-item">
-                               
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{route('students')}}" class="nav-link">Student List</a> 
+                        </li>
+                        <li class="nav-item">
+                           <a href="#" class="nav-link">Class notices</a> 
+                        </li>
+                   
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Add class notice</a> 
+                        </li>
+                        
+
+
+                   
                        
-                            <li class="nav-item">
-                               
-                            </li>
-                      
-                            <li class="nav-item">
-                                
-                            </li>
-                      
-                    </ul>
-                </li> --}}
+                  
+                </ul>
+            </li>
 
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link  active nav-dropdown-toggle" >
@@ -69,34 +69,7 @@
                     </ul>
                 </li>
                 
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" >
-                        <i class="fa-fw fas fa-users nav-icon">
-
-                        </i>
-                        
-                       Notices
-                    </a>
-                    <ul class="nav-dropdown-items">
-                       
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Students</a> 
-                            </li>
-                            <li class="nav-item">
-                               <a href="#" class="nav-link">Class notices</a> 
-                            </li>
-                       
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Add class notice</a> 
-                            </li>
-                            
-
-
-                       
-                           
-                      
-                    </ul>
-                </li>
+               
         
             <li class="nav-item">
                 <a class="nav-link " href="#">

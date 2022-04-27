@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Term extends Model
 {
     use HasFactory;
-
+    
+    protected $fillable = [
+        'term_name',
+        'start',
+        'end'
+    ];
     
     public function termtests()
     {

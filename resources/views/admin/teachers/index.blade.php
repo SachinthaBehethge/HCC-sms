@@ -8,7 +8,7 @@
         <div class="panel-body">
               <table class=" table table-boardered table-hover table-responssive ">
                   <tr>
-                      <th>#</th>
+                      <th>No</th>
                       <th>Teacher No.</th>
                       <th> Teacher Name</th> Name</th>
                       <th>Is Class Teacher</th>

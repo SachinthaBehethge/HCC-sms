@@ -9,22 +9,25 @@
             <table class=" table table-dark table-hover table-responsive ">
                 <tr>
                     <th>No</th>
-                    <th>Section</th>
-                    <th>Action</th>
+                    <th>Grade</th>
+                    <th style="padding-left: 10%">Actions</th>
                 </tr>
                 @forelse($grades as $grade)
     
                         <tr>
                             <td>{{$grade->id }}</td>
                             <td>{{$grade->name}}</td>
-                            {{-- <td> <a href="{{ route('#', $section->id) }}" class="btn btn-xs btn-primary">Edit</a> --}}
                             
-                            {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
-                                @csrf
-                                {{method_field('DELETE')}}
-                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
-                                    class="btn btn-xs btn-danger" />
-                            </form> --}}
+                            <td> 
+                                <a href="{{ route('admin.grades.show', $grade->id) }}" class="btn btn-success col-md-2" style="margin-right: 2px">View</a>
+                                <a href="{{route('admin.grades.edit', $grade->id)}}" class="btn btn-primary col-md-2" style="margin-right: 2px">Update Grade</a>
+
+                                <form method="POST" action="{{route('admin.grades.destroy', $grade->id)}}">
+                                    @csrf
+                                    {{method_field('DELETE')}}
+                                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                    class="btn  btn-danger col-md-2" />
+                                </form>
                                 
                             <td>
 

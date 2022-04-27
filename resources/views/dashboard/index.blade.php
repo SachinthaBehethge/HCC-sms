@@ -35,7 +35,7 @@ $loggedUser = Auth::user();
              </h4>
              <br>
              <h4>
-                No of Students : {{$teacher->class->student->count()}}
+                No of Students : .{{$teacher->class->students->count()}}
              </h4>
             </div>
           </div>     

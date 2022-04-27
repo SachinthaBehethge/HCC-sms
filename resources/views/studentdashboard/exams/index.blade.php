@@ -11,30 +11,28 @@
         <hr>
 
         <div class="row">
-          @forelse($subjects as $key => $subject)
-
-        
-          <div class="card  col-md-3 bg-primary mr-3 ml-3" style="width: 18rem;">
+          @forelse($termtests as $key => $termtest)
+          
+         
+          <div class="card  col-md-4 bg-primary mr-3 ml-3" style="width: 18rem;">
             <div class="card-body">
+              <h2 class="card-title text-center d-bold">{{$termtest->term_name}} Test </h2>  
               
-              <h3 class="card-title ">Term - {{$subject->termtest->term->term_name}} 
-
-               
-                  
-                
-              </h3>
-              <h4>
-                  Subject : {{$subject->termtest->subject->subject_name}}
+              <h4 class="card-text text-center">
+                  Subject : {{$termtest->subject_name}}
               </h4>
-              <h4>
-                Date : {{$subject->termtest->test_date}}
-            </h4>
-            <h4>
-                {{-- Start Time :{{$subject->termtest>start_time}}  End Time :{{$subject->termtest->end_time}} --}}
-            </h4>
+
+              <h4 class="card-text text-center">
+                Date : {{$termtest->test_date}}
+              </h4>
+              
+              <h4 class="card-text text-center">
+                Start Time :{{$termtest->start_time}}  
+              </h4>
               {{-- <p class="card-text text-center">{{$notice->body}}</p> --}}
-              
-              
+              <h4 class="card-text text-center">
+                End Time :{{$termtest->end_time}}
+              </h4>
              
             </div>
           </div>     

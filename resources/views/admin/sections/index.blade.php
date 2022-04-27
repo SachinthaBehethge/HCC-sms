@@ -13,20 +13,20 @@
                     <th>Section</th>
                     <th>Action</th>
                 </tr>
-                @forelse($sections as $section)
+                @forelse($sections as $key => $section)
     
                         <tr>
-                            <td>{{$section->id }}</td>
+                            <td>{{$key+1 }}</td>
                             <td>{{$section->section_name}}</td>
                             <td> 
-                                <a href="{{ route('admin.sections.edit', $section->id) }}" class="btn btn-xs btn-primary col-md-8 mb-2">Edit</a>
+                                {{-- <a href="{{ route('admin.sections.edit', $section->id) }}" class="btn btn-xs btn-primary col-md-8 mb-2">Edit</a> --}}
                                 
                                 <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
                                     @csrf
                                     {{method_field('DELETE')}}
                                     
                                     <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
-                                        class="btn btn-xs btn-danger col-md-8 " />
+                                        class="btn  btn-danger col-md-5 " />
                                 </form>
                                 
                         
@@ -42,7 +42,8 @@
                         <tr>
                             <td colspan="2">No Sections Found</td>
                         </tr>
-                    @endforelse
+                    
+                @endforelse
                    
             </table>
        

@@ -14,7 +14,8 @@ class TermController extends Controller
      */
     public function index()
     {
-        //
+        $terms = Term::all();
+        return view('admin.terms.index',compact('terms'));
     }
 
     /**
@@ -57,7 +58,9 @@ class TermController extends Controller
      */
     public function edit(term $term)
     {
-        //
+        $term = Term::findorFail($term->id);
+        
+        return view('admin.terms.edit', compact('term') );
     }
 
     /**
@@ -69,7 +72,12 @@ class TermController extends Controller
      */
     public function update(Request $request, term $term)
     {
-        //
+        $term->start = $request->start;
+        $term->end = $request->end;
+        $term->save();
+
+        return redirect()->route('admin.terms.index')->with('message', 'Term Updated successfully!');
+
     }
 
     /**

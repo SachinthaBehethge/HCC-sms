@@ -88,7 +88,12 @@ class ClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teachers = Teacher::all();
+        $class =Classes::findorFail($id);
+
+        return view('admin.class.edit', compact('teachers','class'));
+
+
     }
 
     /**

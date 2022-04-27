@@ -112,7 +112,24 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        
+
+        $teacher->name = $request->name;
+        $teacher->teacher_no = $request->teacherno;
+        $teacher->phone = $request->phone;
+        $teacher->email = $request->email;
+        $teacher->gender = $request->gender;
+        
+        $user = User::findorFail($teacher->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+        $user->save();
+
+        $teacher->save();
+
+        return redirect()->route('admin.teachers.index')->with('message', 'Student Updated successfully!');
+
     }
 
     /**

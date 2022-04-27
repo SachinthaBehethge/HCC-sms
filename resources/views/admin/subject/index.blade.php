@@ -8,16 +8,22 @@
       <div class="panel-body">
         <a href="{{route('admin.subjects.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Subject</button></a>
         <br>
-            <table class=" table table-dark table-hover table-responsive ">
+
+        @foreach ($grades as $grade)
+            <button id="subbtn" class="btn btn-primary " onclick="show()">
+                {{$grade->name}} - Subjects
+            </button>
+            <br><br>
+            <table class=" table table-dark table-hover table-responsive " id="showsub">
                 <tr>
                     <th>No</th>
                     <th>Subject</th>
                     <th>Grade</th>
                     <th>Action</th>
                 </tr>
-                @forelse($subjects as $key => $subject)
+                @forelse($grade->subjects as $key => $subject)
     
-                        <tr>
+                        <tr >
                             <td>{{$key+1}}</td>
                             <td>{{$subject->subject_name}}</td>
                             <td>{{$subject->grade->name}}</td>
@@ -47,10 +53,23 @@
                     @endforelse
                    
             </table>
-       
+        @endforeach
 
     </div>
   </div>
 </div> 
      
+@endsection
+@section('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+   
+
+
+   
+   
+        
+</script>
 @endsection

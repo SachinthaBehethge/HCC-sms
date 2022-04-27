@@ -55,7 +55,7 @@ class HomeController extends Controller
     {
         $user = Auth::user(); 
         $teacher = Teacher :: find($user->id);
-    
+        //dd($teacher->class->students);
         return view('dashboard.index',compact('teacher'));
     }
 
@@ -64,10 +64,35 @@ class HomeController extends Controller
 
 
 
-    public function contact()
+    public function classstudent()
     {
-        return view('contact');
+        $user = Auth::user(); 
+        $teacher = Teacher :: find($user->id);
+        $class= $teacher->class;
+        $students = Student::where('classes_id','=', $class->id)->get();
+        
+
+        return view('dashboard.student.index',compact('students'));
     }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function studentview(Student $student)
+    {
+        
+        $student = Student::find($student->id);
+        dd($student);
+
+        return view('dashboard.student.view',compact('student'));
+    }
+
+
+
 
     public function admin(){
 

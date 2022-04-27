@@ -50,14 +50,7 @@
                             <a class="nav-link"  href="/">Home</a>
 
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link"  href="/about">About</a>
-
-                        </li>
-                        <li class="nav-item">
-                            <a  class="nav-link"  href="#">Contact</a>
-
-                        </li> --}}
+                        
                         @auth
 
                         @if ($loggedUser->role_id == 1)
@@ -76,13 +69,15 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}" class="nav-link">My profile</a>
                         </li>
-                        @endif   
+                           
 
                       
-                        @if ($loggedUser->teacher->is_classteacher==0 && $loggedUser->role_id==2) 
-                        <li class="nav-item">
-                            <a href="{{route('dashboard')}}" class="nav-link">Class Dashboard</a>
-                        </li>
+                            @if ($teacher->is_classteacher==0 ) 
+                            <li class="nav-item">
+                                <a href="{{route('dashboard')}}" class="nav-link">Class Dashboard</a>
+                            </li>
+                            @endif
+                        
                         @endif
                         @endauth
                         
@@ -138,15 +133,16 @@
                         <h5 class="text-white mb-3 text-center">Quick links</h5>
                         <ul class="list-unstyled text-muted text-center">
                             <li><a href="{{route('homepage')}}">Home</a></li>
-                            <li><a href="{{route('about')}}">About</a></li>
-                            <li><a href="#">contact</a></li>
+                        
+                            <li><a href="tel:+94812404203">contact</a></li>
+                            <li><a href="#">School Website</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5 col-md-5">
                         <h5 class="text-white mb-3 text-center">Social Media</h5>
                         <ul class="text-center">
-                            <a href="#" class="fa fa-facebook"></a>
-                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="https://m.facebook.com/174165172640472/" class="fa fa-facebook"></a>
+                            <a href="https://mobile.twitter.com/HewahetaCC" class="fa fa-twitter"></a>
                             <a href="#" class="fa fa-google"></a>
                             <a href="#" class="fa fa-linkedin"></a>
                             <a href="#" class="fa fa-yahoo"></a>

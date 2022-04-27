@@ -23,34 +23,7 @@
                 </a>
                 
             </li>
-                {{-- <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" href=>
-                        <i class="fa-home nav-icon">
-                            
-                        </i>
-                       Dashboard
-                    </a>
-                    <ul class="nav-dropdown-items">
-                       
-                            <li class="nav-item">
-                                
-                            </li>
-                       
-                   
-                            <li class="nav-item">
-                               
-                            </li>
-                       
-                            <li class="nav-item">
-                               
-                            </li>
-                      
-                            <li class="nav-item">
-                                
-                            </li>
-                      
-                    </ul>
-                </li> --}}
+               
 
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link  active nav-dropdown-toggle" >

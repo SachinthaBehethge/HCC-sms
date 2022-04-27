@@ -57,7 +57,7 @@ class NoticeController extends Controller
         $notice = new Notice;
         $notice->title = $request->notice_title;
         $notice->body = $request->noticeBody;
-        $notice->class_id = $teacher->class->id;
+        $notice->classes_id = $teacher->class->id;
         $notice->save();
 
         return redirect()->route('notices.index')->with('message', 'Notice Added successfully!');

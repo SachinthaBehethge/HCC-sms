@@ -55,36 +55,48 @@
                 <span class="text-black-50">{{$teacher->email}}</span><span> </span></div>
         </div>
         
-        <div class="col-md-5 border-right">
+        <div class="col-md-9 border-right">
             <div class="p-3 py-5">
-                <h3>Basic Info</h3>
-                <div class="row mt-2">
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"  value="{{$teacher->name}}" disabled></div>
-                    {{-- <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div> --}}
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"  value="{{$teacher->phone}}" disabled></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text-area" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="{{$teacher->gender}}" disabled></div>
+                <form method="POST" action="{{route('admin.teachers.update', $teacher->id)}}" enctype="multipart/form-data">
+                {{method_field('PUT')}}  
+                @csrf    
                     
-                </div>
-                
-         
-                <br>
-                <div class="mt-5 mb-5 text-center"><button class="btn btn-primary profile-button" type="button">Update Teacher Info</button></div>
-                <br>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">Name :</label><input type="text" name="name" class="form-control"  value="{{$teacher->name}}" ></div>
+                        <br>
+                        <div class="col-md-6"><label class="labels">Email :</label><input type="email" name="email" class="form-control" value="{{$teacher->email}}" ></div>
+                        <br>
+                        <div class="col-md-6"><label class="labels">Teacher no :</label><input type="text" name="teacherno" class="form-control" value="{{$teacher->teacher_no}}" ></div>
+
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number :</label><input type="text" name="phone" class="form-control"  value="{{$teacher->phone}}" ></div>
+                        <br>
+                        <div class="col-md-6"><label class="labels">Gender :</label><input type="text" class="form-control"  value="{{$teacher->gender}}" disabled ></div>
+
+                        <div class="col-md-6">
+                            <br>
+                            <select type="text" name="gender" class="form-control " required>
+                                    <option value="{{$teacher->gender}}">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                            </select>  
+                            
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+            
+                    <br>
+                    <div class="mt-5 mb-5 text-center"><input class="btn btn-primary profile-button" type="submit" value="update student info"></div>
+                    <br>
+                </form>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <h3>Other info</h3>
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Subjects</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Class</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-            </div>
-        </div>
+        
     </div>
 </div>
 </div>

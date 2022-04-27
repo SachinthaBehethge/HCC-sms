@@ -26,15 +26,16 @@ Route::get('/about', 'HomeController@about')->name('about');
 //Route::get('/contact', 'CourseController@contact')->name('contact');
 
 
-
-
-
 Auth::routes(['verify'=>true]);
 //auth routes website
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
     Route::get('dashboard','HomeController@dashboard')->name('dashboard');
+    Route::get('students','HomeController@classstudent')->name('students');
+    Route::get('student.view','HomeController@studentview')->name('student.view');
+
     Route::resource('notices','NoticeController');
+    Route::get('notices.index','NoticeController@index')->name('notices.index');
     Route::resource('studentdashboard','StudentdashboardController');
     Route::get('notices','StudentdashboardController@notice')->name('notice');
     Route::get('subjects','StudentdashboardController@subject')->name('subjects');
@@ -51,9 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
    
     
 });
-
-
-
 
 
     
@@ -73,5 +71,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('classteacher','TeacherController@classteacher')->name('teachers.classteacher');
     Route::resource('classes', 'classController');
     Route::resource('termtests', 'TermtestController');
+    Route::resource('terms','TermController');
 
 });

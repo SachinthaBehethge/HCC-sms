@@ -18,9 +18,9 @@ class SubjectController extends Controller
     public function index()
     {
 
-        $subjects = Subject::all();
+        $grades = Grade::all();
 
-        return view('admin.subject.index',compact('subjects'));
+        return view('admin.subject.index',compact('grades'));
     }
 
     /**

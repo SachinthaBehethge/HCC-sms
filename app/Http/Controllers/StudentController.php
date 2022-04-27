@@ -62,7 +62,7 @@ class StudentController extends Controller
         $student->id = $user->id;
         $student->index_no = $request->indexno;
         $student->student_no = $request->stno;
-        $student->index_no = $request->indexno;
+        //$student->index_no = $request->indexno;
         $student->fullname = $request->fullname;
         $student->email = $request->email;
         $student->name_with_ini = $request->initials;
@@ -77,7 +77,8 @@ class StudentController extends Controller
         $student->gardian_phone = $request->phone;
         $student->distance = $request->distance;
         $student->way_of_coming = $request->coming;
-        $student->section_id = $request->section;
+        $student->classes_id = $request->grade;
+        $student->gender = $request->gender;
         
         $student->save();
 
@@ -96,7 +97,10 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         $student = Student::findorFail($student->id);
-        return view('admin.student.view',compact('student'));
+        //dd($student);
+        $classes = Classes::all();
+
+        return view('admin.student.view',compact('student','classes'));
     }
 
     /**
@@ -119,7 +123,37 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student->index_no = $request->indexno;
+        $student->student_no = $request->studentno;
+        $student->fullname = $request->fullname;
+        $student->email = $request->email;
+        $student->name_with_ini = $request->initials;
+        $student->address = $request->address;
+        $student->dob = $request->dob;
+        $student->nationality = $request->nationality;
+        $student->nic = $request->nic;
+        //$student->special_needs = $request->specialneed;
+
+        $student->gardian_name = $request->gardianname;
+        $student->gardian_email = $request->gardianemail;
+        $student->gardian_phone = $request->phone;
+        $student->distance = $request->distance;
+        $student->weight = $request->weight;
+        $student->height =$request->height;
+        $student->way_of_coming = $request->coming;
+        $student->classes_id = $request->class;
+        $user = User::findorFail($student->id);
+        $user->name = $request->initials;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->indexno);
+        $user->save();
+
+        $student->user->password = Hash::make($request->indexno);
+        
+        $student->save();
+
+        return redirect()->route('admin.student.index')->with('message', 'Student Updated successfully!');
+
     }
 
     /**

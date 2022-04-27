@@ -54,7 +54,7 @@
                     <a href="{{route('admin')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">{{Auth::user()->name}}</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item" href="{{route('homepage')}}"><a  href="{{route('homepage')}}">Web Site</a></li>
-                        <li><a href="#">Manage Courses</a></li>
+                    
                         <li>
                             <form id="logoutform" action="{{ route('logout') }}" method="POST">
                             <button>logout</button>
@@ -93,6 +93,8 @@
                             </div>
                         </div>
                     </li>
+                    <li class="#"><a href="{{route('admin.teachers.index')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
+
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lv12">
                             <span class="glyphicon glyphicon-home"></span>Classes <span class="caret"></span>
@@ -114,6 +116,7 @@
                         <div id="dropdown-lvl3" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
+                                    <li><a href="{{route('admin.terms.index')}}">Terms</a></li>
                                     <li><a href="{{route('admin.termtests.index')}}">Term Tests</a></li>
                                     <li><a href="{{route('admin.termtests.create')}}">Create Term Test</a></li>
                                 </ul>
@@ -121,10 +124,9 @@
                         </div>
                     </li>
                   
-                    <li class="#"><a href="{{route('admin.teachers.index')}}"><i class="feather-16" data-feather="users"></i><span class="glyphicon glyphicon-user"></span> Teachers</a></li>
                     <li class="#"><a href="{{route('admin.grades.index')}}"><i class="feather-16" data-feather="sections"></i><span class="glyphicon glyphicon-th"></span> Grades</a></li>
                     <li class="#"><a href="{{route('admin.sections.index')}}"><i class="feather-16" data-feather="streams"></i><span class="glyphicon glyphicon-th"></span> Sections</a></li>
-                    <li class="#"><a href="{{route('admin.subjects.index')}}"><i class="feather-16" data-feather="subjects"></i><span class="glyphicon glyphicon-th"></span> Subjects</a></li>
+                    <li class="#"><a href="{{route('admin.subjects.index')}}"><i class="feather-16" data-feather="subjects"></i><span class="glyphicon glyphicon-book"></span> Subjects</a></li>
                                       
 
                    
@@ -151,15 +153,15 @@
                 <h5 class="text-white mb-3 text-center">Quick links</h5>
                 <ul class="list-unstyled text-muted text-center">
                     <li><a href="{{route('homepage')}}">Home</a></li>
-                    <li><a href="{{route('about')}}">About</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="tel:+94812404203">contact</a></li>
+                    <li><a href="#">School Website</a></li>
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6">
                 <h5 class="text-white mb-3 text-center">Social Media</h5>
                 <ul class="text-center">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="https://m.facebook.com/174165172640472/" class="fa fa-facebook"></a>
+                    <a href="https://mobile.twitter.com/HewahetaCC" class="fa fa-twitter"></a>
                     <a href="#" class="fa fa-google"></a>
                     <a href="#" class="fa fa-linkedin"></a>
                     <a href="#" class="fa fa-yahoo"></a>
