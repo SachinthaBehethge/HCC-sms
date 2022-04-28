@@ -25,4 +25,9 @@ class Termtest extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function marks()
+    {
+        return $this->hasMany(Mark::class);
+    }
 }

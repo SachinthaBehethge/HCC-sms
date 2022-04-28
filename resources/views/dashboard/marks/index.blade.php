@@ -13,13 +13,13 @@
 
         <div class="row">
           @forelse($termtests as  $termtest)
-
+                
             <div class="row col-md-12">
-                <a href="#" class="btn btn-success col-md-6 mt-10" style="margin: 10px">{{$termtest->subject_name}}</a>
+                <a href="{{ route('marks.edit', ) }}" class="btn btn-success col-md-6 mt-10" style="margin: 10px">{{$termtest->subject_name}}</a>
                 <br>
             </div>
          
-          
+           
 
 
 

@@ -49,5 +49,9 @@ class Student extends Model
         return $this->belongsTo(Classes::class,'classes_id');
     }
    
+    public function marks()
+    {
+        return $this->belongsToMany(Mark::class);
+    }
     
 }
