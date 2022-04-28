@@ -5,34 +5,22 @@
     <div class="panel panel-default">
       <div class="panel-heading">
           <h1 class="page-header">Term Test - subjects</h1>
+          <small>Click on subjects to add marks</small>
       </div>
       <div class="panel-body">
         <br>
         <hr>
 
         <div class="row">
-          @forelse($notices as $key => $notice)
+          @forelse($termtests as  $termtest)
 
-        
-          <div class="card  col-md-3 bg-success mr-3 ml-3" style="width: 18rem;">
-            <div class="card-body">
-              <small class="card-subtitle mb-2 text-muted  "> updated at : {{$notice->updated_at}}</small>
-              <h3 class="card-title ">{{$key+1}} - {{$notice->title}} 
-
-               
-                <i class="fa fa-trash pull-right " aria-hidden="true" type="button" style="color: red"></i>
-                  
-                
-              </h3>
-              
-              <p class="card-text text-center">{{$notice->body}}</p>
-              <br>
-              
-              <button class="btn-primary col-md-12">update notice</button>
-              
-             
+            <div class="row col-md-12">
+                <a href="#" class="btn btn-success col-md-6 mt-10" style="margin: 10px">{{$termtest->subject_name}}</a>
+                <br>
             </div>
-          </div>     
+         
+          
+
 
 
                       

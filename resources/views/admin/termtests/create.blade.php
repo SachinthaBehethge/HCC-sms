@@ -38,7 +38,7 @@
 
             <div class="form-floating">
                 <label for="floatingInput">Test Date :</label> 
-                <input type="date" id="testdate" name="testdate"  class="form-control @error('testdate') is-invalid @enderror"/>
+                <input type="date" id="testdate" name="testdate"   class="form-control @error('testdate') is-invalid @enderror"/>
                 @error('testdate')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

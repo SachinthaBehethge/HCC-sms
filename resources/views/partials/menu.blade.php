@@ -5,7 +5,7 @@
         <ul class="nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="{{route('dashboard')}}">
+                <a class="nav-link active" href="{{route('dashboard')}}">
                     <i class="fa-fw fas fa fa-dashboard nav-icon">
 
                     </i>
@@ -14,7 +14,7 @@
                 
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link  active nav-dropdown-toggle" >
+                <a class="nav-link  nav-dropdown-toggle" >
                     <i class="fa-fw fas fa-users nav-icon">
 
                     </i>
@@ -42,8 +42,37 @@
                 </ul>
             </li>
 
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link   nav-dropdown-toggle" >
+                    <i class="fa-fw fas fa-analytics nav-icon">
+                       
+                    </i>
+                    
+                   Marks
+                </a>
+                <ul class="nav-dropdown-items">
+                   
+                        <li class="nav-item">
+                            <a href="{{route('marks.index')}}" class="nav-link">Termtest-subjects</a> 
+                        </li>
+                        <li class="nav-item">
+                           <a href="#" class="nav-link">Class notices</a> 
+                        </li>
+                   
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Add class notice</a> 
+                        </li>
+                        
+
+
+                   
+                       
+                  
+                </ul>
+            </li>
+
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" >
+                    <a class="nav-link   nav-dropdown-toggle" >
                         
                     
                         <i class="fa fa-address-book nav-icon"></i>

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('notices','StudentdashboardController@notice')->name('notice');
     Route::get('subjects','StudentdashboardController@subject')->name('subjects');
     Route::get('exams','StudentdashboardController@exam')->name('exams');
+    Route::resource('marks','MarkController');
 
 });
 
