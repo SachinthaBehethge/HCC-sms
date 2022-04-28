@@ -21,19 +21,19 @@ class MarkController extends Controller
         
 
             
-        $termtests =  Termtest::select('term_name','subject_name','termtest_id')  
+        $termtests =  Termtest::select('term_name','subject_name','termtests.id as termtest_id')  
             ->join('terms','termtests.term_id','=','terms.id')->where('terms.start','<',$today)->where('terms.end','>',$today)
             ->join('subjects','termtests.subject_id','=','subjects.id')
             ->join('grades','subjects.grade_id','=','grades.id')
             ->join('classes','classes.grade_id','=','grades.id')
             ->join('students','students.classes_id','=','classes.id')
-            ->join('marks','marks.student_id.','=','students.id')
+            // ->join('marks','marks.student_id.','=','students.id')
             ->groupBy('termtests.id')->get();    
 
 
         //$terms = Term::where($today->between('start','end'))->get();
      
-        dd($termtests->id);
+        // dd($termtests);
          return view('dashboard.marks.index',compact('termtests'));
     }
 
