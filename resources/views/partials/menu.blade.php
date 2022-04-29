@@ -44,7 +44,7 @@
 
             <li class="nav-item nav-dropdown">
                 <a class="nav-link   nav-dropdown-toggle" >
-                    <i class="fa-fw fas fa-analytics nav-icon">
+                    <i class="fa-fw fa fa-bar-chart nav-icon">
                        
                     </i>
                     
@@ -56,7 +56,7 @@
                             <a href="{{route('marks.index')}}" class="nav-link">Termtest-subjects</a> 
                         </li>
                         <li class="nav-item">
-                           <a href="#" class="nav-link">Class notices</a> 
+                           <a href="{{route('marks.show')}}" class="nav-link">Mark Sheet</a> 
                         </li>
                    
                         <li class="nav-item">
@@ -100,51 +100,18 @@
                 
                
         
+          
             <li class="nav-item">
                 <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   Class Students
-                </a>
-                
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
+                    <i class="fa-fw fa fa-calendar nav-icon">
 
                     </i>
                    Time Table
                 </a>
                 
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   School Notices
-                </a>
-                
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   class Notices
-                </a>
-                
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   class Time Table
-                </a>
-                
-            </li>
+            
+           
        
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

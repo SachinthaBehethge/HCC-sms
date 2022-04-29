@@ -28,7 +28,7 @@
 
               @empty
                   <div>
-                      <h3>No notices Found</h3>
+                      <h3>No termtests Found</h3>
                   </div>
               @endforelse
 

@@ -40,53 +40,33 @@
 </style>  
 
 <div class="container rounded bg-white mt-5 mb-5">
+    <h1 class=" text-center">User Profile</h1>
+    <hr>
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{asset('assets/img/profile/user-avatar.png')}}">
                 <br>
                 @if ($user->role_id == 2)
-                <span class="font-weight-bold">Teacher</span>
+                    <span class="font-weight-bold">Teacher</span>
                 @elseif ($user->role_id == 3)
-                <span class="font-weight-bold">Student</span> 
+                     <span class="font-weight-bold">Student</span> 
                 @endif
                
                 <span class="text-black-50">{{$user->email}}</span><span> </span></div>
         </div>
         
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"  value="{{$user->name}}" disabled></div>
-                    {{-- <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div> --}}
-                </div>
-                @if ($user->role_id==2)
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"  value="{{$teacher->phone}}" disabled></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text-area" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="{{$teacher->gender}}" disabled></div>
+        <div class="col-md-7 border-right">
+          
+                    @if ($user->role_id == 2)
+                        @include('partials.teacherprofile')
+                    @elseif ($user->role_id == 3)
+                        @include('partials.studentprofile')
+                    @endif
+
                     
-                </div>
-                @elseif ($user->role_id==3)
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Index no</label><input type="text" class="form-control"  value="{{$student->index_no}}"></div>
-                    <div class="col-md-6"><label class="labels">Student no</label><input type="text" class="form-control" value="{{$student->student_no}}" ></div>
-                </div>  
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"  value="{{$student->gardian_phone}}" disabled></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text-area" class="form-control" placeholder="enter address line 1" value="{{$student->address}}"></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="" disabled></div>
-                    
-                </div>
-                
-                @endif
-                
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-            </div>
+
+
+            
         </div>
 
         <div class="col-md-4">

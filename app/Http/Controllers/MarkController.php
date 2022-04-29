@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\Term;
 use App\Models\Termtest;
+use App\Models\Teacher;
+use Illuminate\Support\Facades\Auth;
 
 class MarkController extends Controller
 {
@@ -21,7 +23,7 @@ class MarkController extends Controller
         
 
             
-        $termtests =  Termtest::select('term_name','subject_name','termtests.id as termtest_id')  
+        $termtests =  Termtest::select('term_name','subject_name','termtests.id as termtest_id')  //
             ->join('terms','termtests.term_id','=','terms.id')->where('terms.start','<',$today)->where('terms.end','>',$today)
             ->join('subjects','termtests.subject_id','=','subjects.id')
             ->join('grades','subjects.grade_id','=','grades.id')
@@ -55,7 +57,19 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        for($i=0;$i< count($request->stid);$i++){
+	
+            $mark = new Mark;
+            $mark->term_test_id = $request->term;
+            $mark->student_id = $request->stid[$i];
+            $mark->marks = $request->mark[$i];	
+                            
+            $mark->save();
+
+            
+        };
+
+        return redirect()->route('marks.index')->with('message', 'Marks Added successfully!');
     }
 
     /**
@@ -66,7 +80,7 @@ class MarkController extends Controller
      */
     public function show(Mark $mark)
     {
-        //
+        return view('dashboard.marks.view');
     }
 
     /**
@@ -75,9 +89,14 @@ class MarkController extends Controller
      * @param  \App\Models\Mark  $mark
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mark $mark)
+    public function edit($id)
     {
-        //
+        $termtest = Termtest::findorFail($id);
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $students = $teacher->class->students;
+
+        return view('dashboard.marks.add',compact('termtest','students'));
     }
 
     /**
