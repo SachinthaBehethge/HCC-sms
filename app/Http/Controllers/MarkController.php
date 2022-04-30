@@ -146,7 +146,7 @@ class MarkController extends Controller
     public function marksheet()
     {
         $today = Carbon::today();
-        Term::all()->filter(function($term){
+    Term::all()->filter(function($term){
                 if(Carbon::now()->between( $term->end,$term->start)){
                     $term;
                     $termtests = $term->termtests;
@@ -154,6 +154,13 @@ class MarkController extends Controller
                 }
           
             });
+
+        $thisTerm = Term::where('start','<',$today)->where('end','>',$today)->first();
+
+        // $termTest = Termtest::find(1);
+        // dd($termTest->term);
+       
+       
         $user = Auth::user();
         $teacher = Teacher::find($user->id);
         $class = $teacher->class;
@@ -163,11 +170,17 @@ class MarkController extends Controller
        
         $students = $class->students;
        
+       
+
+        $marks = Mark::where('class_id',$class->id)->whereHas('termtest',function($query) use ($thisTerm){
+                            $query->with('subject_id')->where('term_id',$thisTerm->id);
+                    })->get(); 
+    //  dd($marks);
+       
         
-     
       
         
         
-        return view('dashboard.marks.marksheet',compact('subjects', 'students'));
+        return view('dashboard.marks.marksheet',compact('subjects', 'students','marks','thisTerm'));
     }
 }

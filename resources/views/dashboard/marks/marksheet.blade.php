@@ -54,6 +54,59 @@
                     
                    
             </table>
+            <table class=" table table-warning table-hover table-responsive table-center">
+             <thead>
+              <tr>
+                <th>student</th>
+                <th>index no</th>
+                @foreach ($subjects as $subject)
+                <th>{{$subject->subject_name}}</th>
+              @endforeach   
+                
+              </tr>
+               
+             </thead>
+             <tbody>
+               @foreach($marks as $index =>$mark)
+              <tr>
+                <td>{{$mark->student->name_with_ini}}</td>
+                <td>{{$mark->student->index_no}}</td>
+                @foreach ($subjects as $subject)
+                 @php
+                   $termtest = App\Models\TermTest::where('subject_id',$subject->id)->where('term_id',$thisTerm->id)->first();
+                   if($termtest!=null){
+                    $thisMark = $marks->where('term_test_id',$termtest->id)->where('student_id',$mark->student_id)->first();
+                    $value = $thisMark->marks;
+
+                   }else{
+
+                    $value = "N/A";
+                   }
+              
+                  
+                @endphp
+
+               
+               
+                <td>{{$value}}</td>
+              
+              @endforeach   
+              
+                
+              </tr>
+
+             @endforeach
+             </tbody>
+          
+  
+  
+                  
+      
+                      
+                     
+              </table>
+
+
 
             {{-- <input type="submit" value="Add Marks" class="btn btn-warning pull-right col-md-5"> --}}
 

@@ -10,24 +10,29 @@ class Mark extends Model
     use HasFactory;
 
     protected $fillable = [
-        'termtest_id',
+        'term_test_id',
         'student_id',
-        'class-id',
+        'class_id',
         'mark'
     ];
 
     public function termtest()
     {
-        return $this->belongsTo(Termtest::class);
+        return $this->belongsTo(Termtest::class,'term_test_id');
     }
 
     public function student()
     {
-        return $this->hasOne(Student::class);
+        return $this->belongsTo(Student::class);
     }
+
+   
 
     public function class(){
         return $this->belongsTo(classes::class);
     }
+
+
+    
 
 }

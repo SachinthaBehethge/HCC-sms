@@ -17,6 +17,6 @@ class Term extends Model
     
     public function termtests()
     {
-        return $this->hasMany(Termtest::class);
+        return $this->hasMany(Termtest::class,'term_id');
     }
 }
