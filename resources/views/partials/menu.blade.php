@@ -1,5 +1,7 @@
 <div class="sidebar">
- 
+   
+   
+  
     <nav class="sidebar-nav">
 
         <ul class="nav">
@@ -56,7 +58,7 @@
                             <a href="{{route('marks.index')}}" class="nav-link">Termtest-subjects</a> 
                         </li>
                         <li class="nav-item">
-                           <a href="{{route('marks.show')}}" class="nav-link">Mark Sheet</a> 
+                           <a href="{{route('marksheet')}}" class="nav-link">Mark Sheet</a> 
                         </li>
                    
                         <li class="nav-item">

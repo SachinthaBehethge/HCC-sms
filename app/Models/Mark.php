@@ -12,6 +12,7 @@ class Mark extends Model
     protected $fillable = [
         'termtest_id',
         'student_id',
+        'class-id',
         'mark'
     ];
 
@@ -20,9 +21,13 @@ class Mark extends Model
         return $this->belongsTo(Termtest::class);
     }
 
-    public function mark()
+    public function student()
     {
-        return $this->hasOne(Termtest::class);
+        return $this->hasOne(Student::class);
+    }
+
+    public function class(){
+        return $this->belongsTo(classes::class);
     }
 
 }

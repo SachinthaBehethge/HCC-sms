@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Mark;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\Term;
@@ -57,17 +59,32 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-        for($i=0;$i< count($request->stid);$i++){
-	
-            $mark = new Mark;
-            $mark->term_test_id = $request->term;
-            $mark->student_id = $request->stid[$i];
-            $mark->marks = $request->mark[$i];	
-                            
-            $mark->save();
+      
+    
+        for($i=0;$i< count($request->student_id);$i++){
 
-            
-        };
+            $match= mark::where('test_id',$request->term)->where('student_id',$request->stid[$i]);
+            $matchCount = $match->count();
+             if($matchCount == 0){
+   
+                $mark = new Mark;
+                $mark->term_test_id = $request->term;
+                $mark->student_id = $request->stid[$i];
+                $mark->marks = $request->mark[$i];	
+   
+       
+             } else {
+   
+                $mark  = $match->first();
+                $mark->student_id = $request->stid[$i];
+                $mark->marks = $request->mark[$i];	
+   
+            } 
+       
+            $mark->save();
+             
+                           
+        }
 
         return redirect()->route('marks.index')->with('message', 'Marks Added successfully!');
     }
@@ -96,6 +113,8 @@ class MarkController extends Controller
         $teacher = Teacher::find($user->id);
         $students = $teacher->class->students;
 
+
+
         return view('dashboard.marks.add',compact('termtest','students'));
     }
 
@@ -120,5 +139,35 @@ class MarkController extends Controller
     public function destroy(Mark $mark)
     {
         //
+    }
+
+
+
+    public function marksheet()
+    {
+        $today = Carbon::today();
+        Term::all()->filter(function($term){
+                if(Carbon::now()->between( $term->end,$term->start)){
+                    $term;
+                    $termtests = $term->termtests;
+                    
+                }
+          
+            });
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $class = $teacher->class;
+        
+        $subjects = Subject::where('grade_id',$class->grade->id)->get();
+        //$marks = Mark::with('class_id','=',$class->id);
+       
+        $students = $class->students;
+       
+        
+     
+      
+        
+        
+        return view('dashboard.marks.marksheet',compact('subjects', 'students'));
     }
 }

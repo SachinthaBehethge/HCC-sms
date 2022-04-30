@@ -3,7 +3,7 @@
 <div class="col-md-10 content">
   <div class="panel panel-default">
     <div class="panel-heading">
-        <h1 class="page-header">Add New Section</h1>
+        <h1 class="page-header">Add New Class</h1>
     </div>
     <div class="panel-body">
         <form action="{{route('admin.classes.store')}}" method="POST"  enctype="multipart/form-data">

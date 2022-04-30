@@ -17,18 +17,32 @@
           <div class="card  col-md-3 bg-success mr-3 ml-3" style="width: 18rem;">
             <div class="card-body">
               <small class="card-subtitle mb-2 text-muted  "> updated at : {{$notice->updated_at}}</small>
+              
               <h3 class="card-title ">{{$key+1}} - {{$notice->title}} 
 
                
-                <i class="fa fa-trash pull-right " aria-hidden="true" type="button" style="color: red"></i>
-                  
+              
+               
                 
               </h3>
               
               <p class="card-text text-center">{{$notice->body}}</p>
               <br>
               
-              <button class="btn-primary col-md-12">update notice</button>
+              <div class="row"> 
+               
+               
+                <a href="{{ route('notices.edit', $notice->id) }}" class="btn btn-xs btn-primary col-md-6 mb-2">Update</a>
+                <div class="col-md-6 text-center">
+                  <form method="POST" action="{{route('notices.destroy', $notice->id)}}">
+                    @csrf
+                    {{method_field('DELETE')}} 
+                    {{-- <i  class="fa fa-trash fa-lg col-md-4 pull-left" aria-hidden="true" type="submit" onclick="return confirm('Are you sure you want to delete this notice?')" style="color: red"></i> --}}
+                    <input style="font-family: FontAwesome; color:crimson; height:32px; width:32px"  value="&#xf1f8;" type="submit" onclick="return confirm('Are you sure you want to delete this notice?')" >
+                  </form>
+                </div>
+              </div>
+             
               
              
             </div>

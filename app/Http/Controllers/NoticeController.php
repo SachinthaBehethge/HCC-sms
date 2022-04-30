@@ -82,7 +82,9 @@ class NoticeController extends Controller
      */
     public function edit(notice $notice)
     {
-        //
+        $notice = Notice::findorFail($notice->id);
+        
+        return view('dashboard.notices.edit',compact('notice'));
     }
 
     /**
@@ -94,7 +96,12 @@ class NoticeController extends Controller
      */
     public function update(Request $request, notice $notice)
     {
-        //
+        $notice->title = $request->notice_title;
+        $notice->body = $request->noticeBody;
+       
+        $notice->save();
+
+        return redirect()->route('notices.index')->with('message', 'Notice Updated successfully!');
     }
 
     /**
@@ -105,7 +112,8 @@ class NoticeController extends Controller
      */
     public function destroy(notice $notice)
     {
-        //
+        $notice->delete();
+        return redirect()->route('notices.index')->with('message','Notice Deleted!');
     }
 
     public function student()
