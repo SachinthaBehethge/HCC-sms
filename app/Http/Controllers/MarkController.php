@@ -174,7 +174,7 @@ class MarkController extends Controller
 
         $marks = Mark::where('class_id',$class->id)->whereHas('termtest',function($query) use ($thisTerm){
                             $query->with('subject_id')->where('term_id',$thisTerm->id);
-                    })->get(); 
+                    })->groupBy('id')->get(); 
     //  dd($marks);
        
         
