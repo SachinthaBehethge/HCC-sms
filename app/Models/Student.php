@@ -51,7 +51,7 @@ class Student extends Model
    
     public function marks()
     {
-        return $this->belongsToMany(Mark::class);
+        return $this->hasMany(Mark::class,'student_id');
     }
     
 }

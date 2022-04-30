@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-
+    
+    protected $fillable = [
+        'subject_name',
+        'grade_id',
+        'subcategory_id'
+    ]
+    ;
     //protected $primaryKey = 'subject_category_id';
 
 
-    public function termtest()
+    public function termtests()
     {
         return $this->hasMany(Termtest::class,'subject_id');
     }

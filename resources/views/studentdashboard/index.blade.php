@@ -45,7 +45,7 @@ $loggedUser = Auth::user();
 
 
                       
-                
+          <a href="https://moe.gov.lk/" class="btn btn-warning col-md-3 mb-2">Education Department</a>
 
             
 

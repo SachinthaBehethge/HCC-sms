@@ -62,7 +62,7 @@
                         </li>
                    
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Add class notice</a> 
+                            <a href="#" class="nav-link">jhjhj</a> 
                         </li>
                         
 
@@ -83,7 +83,7 @@
                     <ul class="nav-dropdown-items">
                        
                             <li class="nav-item">
-                                <a href="#" class="nav-link">School notices</a> 
+                                <a href="{{route('schoolnotice')}}" class="nav-link">School notices</a> 
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('notices.create')}}" class="nav-link">Add class notice</a> 

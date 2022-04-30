@@ -35,7 +35,7 @@
                     <ul class="nav-dropdown-items">
                        
                             <li class="nav-item">
-                                <a href="#" class="nav-link">School notices</a> 
+                                <a href="{{route('schoolnotice')}}" class="nav-link">School notices</a> 
                             </li>
                             <li class="nav-item">
                                <a href="{{route('notice')}}" class="nav-link">Class notices</a> 

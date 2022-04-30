@@ -2,19 +2,22 @@
 
 @section('content')
 <div class="col-md-10 content">
-    <div class="panel panel-default">
+    <div class="panel col-md-12 panel-default">
       <div class="panel-heading">
-          <h1 class="page-header">Class Notices</h1>
+          <h1 class="page-header">School Notices</h1>
       </div>
-      <div class="panel-body">
-        <br>
+      <br>
+      <a href="{{route('admin.schoolnotices.create')}}"><button type="button" class="btn btn-warning pull-right">Send Notice</button></a><br>
+
+      <div class="panel-body col-md-12">
+        
         <hr>
 
-        <div class="row">
+        <div class="row col-md-12">
           @forelse($notices as $key => $notice)
 
         
-          <div class="card  col-md-3 bg-dark mr-3 ml-3" style="width: 18rem;">
+          <div class="card  col-md-12 bg-success mr-3 ml-3" style="width: 25rem;">
             <div class="card-body">
               <small class="card-subtitle mb-2 text-muted  "> updated at : {{$notice->updated_at}}</small>
               
@@ -29,11 +32,11 @@
               <p class="card-text text-center">{{$notice->body}}</p>
               <br>
               
-              <div class="row"> 
+              <div class="row col-md-12"> 
                
                
-                <a href="{{ route('admin.schoolnotices.edit', $notice->id) }}" class="btn btn-xs btn-primary col-md-6 mb-2">Update</a>
-                <div class="col-md-6 text-center">
+                <a href="{{ route('admin.schoolnotices.edit', $notice->id) }}" class="btn  btn-primary col-md-6 pull-right">Update</a>
+                <div class="col-md-6  pull-right">
                   <form method="POST" action="{{route('admin.schoolnotices.destroy', $notice->id)}}">
                     @csrf
                     {{method_field('DELETE')}} 

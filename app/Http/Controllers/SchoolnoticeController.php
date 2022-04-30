@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Classes;
-use App\Models\notice;
 use App\Models\Schoolnotice;
-use App\Models\Teacher;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use PHPUnit\Framework\Error\Notice as ErrorNotice;
 
-class NoticeController extends Controller
+class SchoolnoticeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +13,11 @@ class NoticeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $user = Auth::user();
-        $teacher = Teacher::find($user->id);
-        $notices = $teacher->class->notices;
+    {
+        $notices = Schoolnotice::all();
         //dd($notices);
 
-        return view('dashboard.notices.index',compact('notices'));
+        return view('admin.notices.index',compact('notices'));
     }
 
     /**
@@ -34,8 +27,7 @@ class NoticeController extends Controller
      */
     public function create()
     {
-    
-        return view('dashboard.notices.create');
+        return view('admin.notices.create');
     }
 
     /**
@@ -51,26 +43,24 @@ class NoticeController extends Controller
             'noticeBody' => 'required|',
            
         ]);
-        $user = Auth::user();
-        $teacher = Teacher::find($user->id);
-        
+       
 
-        $notice = new Notice;
+        $notice = new Schoolnotice;
         $notice->title = $request->notice_title;
         $notice->body = $request->noticeBody;
-        $notice->classes_id = $teacher->class->id;
+       
         $notice->save();
 
-        return redirect()->route('notices.index')->with('message', 'Notice Added successfully!');
+        return redirect()->route('admin.schoolnotices.index')->with('message', 'Notice Added successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\notice  $notice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(notice $notice)
+    public function show($id)
     {
         //
     }
@@ -78,51 +68,44 @@ class NoticeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\notice  $notice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(notice $notice)
+    public function edit( $id)
     {
-        $notice = Notice::findorFail($notice->id);
+        $notice = Schoolnotice::findorFail($id);
         
-        return view('dashboard.notices.edit',compact('notice'));
+        return view('admin.notices.edit',compact('notice'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\notice  $notice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, notice $notice)
+    public function update($id ,Request $request)
     {
+        $notice = Schoolnotice::find($id);
         $notice->title = $request->notice_title;
         $notice->body = $request->noticeBody;
        
         $notice->save();
 
-        return redirect()->route('notices.index')->with('message', 'Notice Updated successfully!');
+        return redirect()->route('admin.schoolnotices.index')->with('message', 'Notice Updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\notice  $notice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(notice $notice)
+    public function destroy($id ,Request $request)
     {
+        $notice = Schoolnotice::find($id);
         $notice->delete();
-        return redirect()->route('notices.index')->with('message','Notice Deleted!');
+        return redirect()->route('admin.schoolnotices.index')->with('message','Notice Deleted!');
     }
-
-    public function schoolnotice()
-    {
-       $notices = Schoolnotice ::all();
-        
-       return view('dashboard.notices.schoolnotice',compact('notices'));
-    }
-
-
 }

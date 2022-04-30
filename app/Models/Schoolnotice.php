@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Term extends Model
+class Schoolnotice extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
-        'term_name',
-        'start',
-        'end'
+        'id',
+        'title',
+        'body'
+        
+        
+        
     ];
+
     
-    public function termtests()
-    {
-        return $this->hasMany(Termtest::class,'term_id');
-    }
+
 }

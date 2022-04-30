@@ -109,6 +109,8 @@
                             </div>
                         </div>
                     </li>
+                    <li class="#"><a href="{{route('admin.schoolnotices.index')}}"><i class="feather-16" data-feather="notices"></i><span class="glyphicon glyphicon-envelope"></span> Notices</a></li>
+
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lvl3">
                             <span class="glyphicon glyphicon-list-alt"></span> Term Tests <span class="caret"></span>

@@ -9,6 +9,7 @@ class Termtest extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'term_id',
         'subject_id',
         'test_date',
@@ -23,11 +24,11 @@ class Termtest extends Model
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(Subject::class,'subject_id');
     }
 
     public function marks()
     {
-        return $this->hasMany(Mark::class);
+        return $this->hasMany(Mark::class,'term_test_id');
     }
 }

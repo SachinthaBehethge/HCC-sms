@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('exams','StudentdashboardController@exam')->name('exams');
     Route::resource('marks','MarkController');
     Route::get('marksheet','MarkController@marksheet')->name('marksheet');
+    Route::get('schoolnotice','NoticeController@schoolnotice')->name('schoolnotice');
 
 });
 
@@ -74,5 +75,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('classes', 'classController');
     Route::resource('termtests', 'TermtestController');
     Route::resource('terms','TermController');
+    Route::resource('schoolnotices','SchoolnoticeController');
 
 });
