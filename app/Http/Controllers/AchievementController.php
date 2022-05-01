@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Achievment;
 use Illuminate\Http\Request;
 use App\Models\Achievement;
+use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,12 +18,17 @@ class AchievementController extends Controller
      */
     public function index()
     {  
-
-        $achievements = Achievement::all();
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $class = $teacher->class;
 
         
-       // dd($achievements);
-        return view('dashboard.student.achievement',compact('achievements'));
+        $students = Student::with('classes_id','=',$class->id);
+        $achievements = Achievement::all();
+
+
+       
+        return view('dashboard.student.achievement');
     }
 
     /**

@@ -9,11 +9,7 @@
       <div class="panel-body">
         <br>
         
-        @php
-            $user = Auth::user();
-            $teacher = Teacher::find($user->id);
-            $class = $teacher->class;
-        @endphp
+     
             <table class=" table table-boardered table-warning table-hover table-responssive ">
                 <tr class="tr-success">
                     <th>No</th>
@@ -21,7 +17,7 @@
                     <th>Student Name</th>
                     <th>Approval</th>
                 </tr>
-            
+                
                     
     
                         <tr id="tableRow">
