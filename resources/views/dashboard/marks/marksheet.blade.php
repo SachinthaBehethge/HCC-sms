@@ -28,15 +28,15 @@
                
              </thead>
              <tbody>
-               @foreach($marks as $index =>$mark)
+               @foreach($students as $index =>$student)
               <tr>
-                <td>{{$mark->student->name_with_ini}}</td>
-                <td>{{$mark->student->index_no}}</td>
+                <td>{{$student->name_with_ini}}</td>
+                <td>{{$student->index_no}}</td>
                 @foreach ($subjects as $subject)
                  @php
                    $termtest = App\Models\TermTest::where('subject_id',$subject->id)->where('term_id',$thisTerm->id)->first();
                    if($termtest!=null){
-                    $thisMark = $marks->where('term_test_id',$termtest->id)->where('student_id',$mark->student_id)->first();
+                    $thisMark = App\Models\Mark::where('term_test_id',$termtest->id)->where('student_id',$student->id)->first();
                    
                     if($thisMark!=null){
                       $value = $thisMark->marks;
@@ -59,8 +59,8 @@
              
               <td>
                 @php
-                   $total= $marks->where('student_id',$mark->student_id)->sum('marks');
-                   $recordCount = $marks->where('student_id',$mark->student_id)->count();
+                   $total= $marks->where('student_id',$student->id)->sum('marks');
+                   $recordCount = $marks->where('student_id',$student->id)->count();
 
                    $avg = $total/$recordCount;
                    
