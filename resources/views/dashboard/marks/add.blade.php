@@ -26,7 +26,7 @@
             </tr>
            @foreach ($students as $key => $student)
             <tr >
-
+              
               <td class="col-md-1">{{$key+1}}
                 <input type="text" class="form-control" value="{{$student->id}}" name="stid[]" hidden>
               </td>

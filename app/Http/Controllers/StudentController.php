@@ -164,6 +164,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student::find($student->id);
+        $student->delete();
+
+        return redirect()->route('admin.student.index')->with('message','Student Deleted !');
     }
 }

@@ -55,7 +55,7 @@
                 <span class="text-black-50">{{$user->email}}</span><span> </span></div>
         </div>
         
-        <div class="col-md-7 border-right">
+        <div class="col-md-8 border-right">
           
                     @if ($user->role_id == 2)
                         @include('partials.teacherprofile')
@@ -65,17 +65,9 @@
 
                     
 
-
+        </div>
             
-        </div>
-
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-            </div>
-        </div>
+        
     </div>
 </div>
 </div>

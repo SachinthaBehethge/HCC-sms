@@ -53,5 +53,10 @@ class Student extends Model
     {
         return $this->hasMany(Mark::class,'student_id');
     }
-    
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class,'student_id');
+    }
+
 }

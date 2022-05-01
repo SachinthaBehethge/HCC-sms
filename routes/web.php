@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('marks','MarkController');
     Route::get('marksheet','MarkController@marksheet')->name('marksheet');
     Route::get('schoolnotice','NoticeController@schoolnotice')->name('schoolnotice');
+    Route::resource('achievements','AchievementController');
+
 
 });
 

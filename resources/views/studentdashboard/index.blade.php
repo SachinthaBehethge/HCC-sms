@@ -43,10 +43,16 @@ $loggedUser = Auth::user();
             </div>
           </div>     
 
-
-                      
-          <a href="https://moe.gov.lk/" class="btn btn-warning col-md-3 mb-2">Education Department</a>
-
+          <div class="col-md-12">
+            <h3>Useful Links</h3>
+            <hr>           
+            <a href="https://moe.gov.lk/" class="btn btn-warning col-md-3 mb-2 ml-3 mr-3">Education Department</a>
+            <a href="https://www.doenets.lk/examresults" class="btn btn-success col-md-3 mb-2">Examination Department</a>
+            <a href="#" class="btn btn-danger col-md-3 mb-2 ml-3 mr-3">School Website</a>
+            <a href="http://www.edupub.gov.lk/BooksDownload.php" class="btn btn-dark col-md-3 mb-2 ml-3 mr-3">Download Text Books</a>
+          </div>
+           
+         
             
 
         </div>

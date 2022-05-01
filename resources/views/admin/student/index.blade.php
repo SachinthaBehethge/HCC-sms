@@ -35,20 +35,11 @@
                                 @csrf
                                 {{method_field('DELETE')}}
                                 
-                                <input type="submit" value="delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                <input type="submit" value="delete" onclick="return confirm('Are you sure you want to delete this Student?')"
                                     class="btn  btn-danger col-md-5 " />
                             </form>
 
-                              {{-- <a href="{{ route('admin.student.edit', $student->id) }}" class="btn btn-xs btn-primary col-md-8 mb-2">Edit</a>
-                              
-                              <form method="POST" action="{{route('admin.student.destroy', $student->id)}}">
-                                  @csrf
-                                  {{method_field('DELETE')}}
-                                  
-                                  <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
-                                      class="btn btn-xs btn-danger col-md-8 " />
-                              </form> --}}
-                              
+                           
                       
 
                           </td>

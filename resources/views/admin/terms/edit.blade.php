@@ -13,6 +13,10 @@
         <h1 class="page-header">{{$term->term_name}} - Update Term</h1>
     </div>
     <div class="panel-body">
+
+        <a href="https://moe.gov.lk/wp-content/uploads/2022/04/English-Calender.pdf" class="btn btn-warning col-md-6 mb-2">Check here before update terms</a>
+
+
         <form action="{{route('admin.terms.update',$term->id)}}" method="POST"  enctype="multipart/form-data">
             {{ method_field('put') }}
             @csrf

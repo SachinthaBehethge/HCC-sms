@@ -26,7 +26,7 @@
                
 
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link  active nav-dropdown-toggle" >
+                    <a class="nav-link  nav-dropdown-toggle" >
                         
                     
                         <i class="fa fa-address-book nav-icon"></i>
@@ -101,15 +101,7 @@
                 </a>
                 
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
-
-                    </i>
-                   Time Table
-                </a>
-                
-            </li>
+           
             <li class="nav-item">
                 <a class="nav-link " href="{{route('exams')}}">
                     <i class="fa-fw fas fa fa-calnder nav-icon">
@@ -117,15 +109,24 @@
                     </i>
                    Exam Calender
                 </a>
-                
+               
             </li>
             
             <li class="nav-item">
                 <a class="nav-link " href="#">
-                    <i class="fa-fw fas fa-user nav-icon">
+                    <i class="fa fa-times-rectangle-o nav-icon">
 
                     </i>
                    class Time Table
+                </a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{route('achievements.index')}}">
+                    <i class="fa-fw fas fa-plus nav-icon">
+
+                    </i>
+                   My Achievements
                 </a>
                 
             </li>

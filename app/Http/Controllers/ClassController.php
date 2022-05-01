@@ -61,10 +61,12 @@ class ClassController extends Controller
         $class->class_name = $request->class;
         $class->teacher_id =$request->classteacher;
         $class->save();
-
-        $teacher=Teacher::find($request->classteacher);
-        $teacher->is_classteacher = 0;
-        $teacher->save();
+        if ($request->classteacher!=null) {
+            $teacher=Teacher::find($request->classteacher);
+            $teacher->is_classteacher = 0;
+            $teacher->save();
+        }
+       
 
         return redirect()->route('admin.classes.index')->with('message', 'Class Added successfully!');
     }
@@ -116,6 +118,9 @@ class ClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $class = Classes::find($id);
+        $class->delete();
+        return redirect()->route('admin.classses.index')->with('message','Class Deleted!');
+
     }
 }

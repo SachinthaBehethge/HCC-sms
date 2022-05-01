@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassTable extends Migration
+class CreateAchievementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateClassTable extends Migration
      */
     public function up()
     {
-        Schema::create('classes', function (Blueprint $table) {
-            $table->id('id');
-            $table->foreignId('grade_id')->references('id')->on('grades')->onDelete('CASCADE');
-            $table->string('class_name');
-            $table->bigInteger('teacher_id');
+        Schema::create('achievements', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('student_id')->references('id')->on('students')->onDelete('CASCADE');
+            $table->string('achievement');
+            $table->boolean('is_approved')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateClassTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('achievments');
     }
 }

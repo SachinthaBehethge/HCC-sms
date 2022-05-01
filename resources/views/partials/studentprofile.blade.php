@@ -43,3 +43,23 @@
         <div class="mt-5 mb-5 text-center"><input class="btn btn-primary profile-button" type="submit" value="update My Details"></div>
         <br>
     </form>    
+    <h3>My Achievements</h3>
+    <div class="card text-left">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <h4 class="card-title"> Title</h4>
+        
+        
+      </div>
+    </div>
+
+
+<div class="col-md-8">
+    <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center experience"><span>Add My Achievements</span><span class="border px-3 p-1 add-experience">
+            
+
+            <i  class=" fa fa-plus"></i><a href="{{route('achievements.create')}}" >&nbsp;Achievement</a></span>
+        </div><br>
+    </div>
+</div>    

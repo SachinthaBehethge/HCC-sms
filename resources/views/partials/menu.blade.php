@@ -29,7 +29,7 @@
                             <a href="{{route('students')}}" class="nav-link">Student List</a> 
                         </li>
                         <li class="nav-item">
-                           <a href="#" class="nav-link">Class notices</a> 
+                           <a href="{{route('achievements.index')}}" class="nav-link">Students Achievements</a> 
                         </li>
                    
                         <li class="nav-item">

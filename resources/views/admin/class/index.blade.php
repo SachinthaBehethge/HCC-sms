@@ -38,14 +38,27 @@
                         
                       </td>
                       <td>
-                       
-                        {{$class->teacher->name}}
+                       @if ($class->teacher_id != null)
+                       {{$class->teacher->name}}
+                       @else
+                        No Class Teacher 
+                       @endif
+                        
                          
                     
                         
                       </td>
                       <td>
                        
+                        <a href="{{ route('admin.classes.show', $class->id) }}" class="btn btn-success col-md-2" style="margin-right: 2px">View</a>
+                        <a href="{{route('admin.classes.edit', $class->id)}}" class="btn btn-primary col-md-2" style="margin-right: 2px">Update class</a>
+
+                        <form method="POST" action="{{route('admin.classes.destroy', $class->id)}}">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this class?')"
+                            class="btn  btn-danger col-md-2" />
+                        </form>
 
                       </td>
                       <td>

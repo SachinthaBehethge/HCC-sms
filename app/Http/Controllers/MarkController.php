@@ -59,16 +59,20 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-      
-    
-        for($i=0;$i< count($request->student_id);$i++){
+        
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $class = $teacher->class;
+        
+        for($i=0;$i< count($request->stid);$i++){
 
-            $match= mark::where('test_id',$request->term)->where('student_id',$request->stid[$i]);
+            $match= mark::where('term_test_id',$request->term)->where('student_id',$request->stid[$i]);
             $matchCount = $match->count();
              if($matchCount == 0){
    
                 $mark = new Mark;
                 $mark->term_test_id = $request->term;
+                $mark->class_id = $class->id;
                 $mark->student_id = $request->stid[$i];
                 $mark->marks = $request->mark[$i];	
    
@@ -76,6 +80,8 @@ class MarkController extends Controller
              } else {
    
                 $mark  = $match->first();
+                $mark->term_test_id = $request->term;
+                $mark->class_id = $class->id;
                 $mark->student_id = $request->stid[$i];
                 $mark->marks = $request->mark[$i];	
    
@@ -112,10 +118,10 @@ class MarkController extends Controller
         $user = Auth::user();
         $teacher = Teacher::find($user->id);
         $students = $teacher->class->students;
+        $marks = Mark::all();
 
 
-
-        return view('dashboard.marks.add',compact('termtest','students'));
+        return view('dashboard.marks.add',compact('termtest','students','marks'));
     }
 
     /**

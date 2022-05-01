@@ -140,7 +140,10 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher = Teacher::find($teacher->id);
+        $teacher->delete();
+
+        return redirect()->route('admin.teachers.index')->with('messege','Teacher Deleted !');
     }
 
     

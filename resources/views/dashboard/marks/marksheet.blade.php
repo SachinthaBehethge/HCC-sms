@@ -1,6 +1,6 @@
 @extends('layouts.userdashboard.userdashboard')
 @section('content')
-<div class="col-md-10 content">
+<div class="col-md-12 content">
   <div class="panel panel-default">
       <div class="panel-heading">
         <h1 class="page-header">  Mark sheet</h1>
@@ -11,49 +11,7 @@
       <div class="panel-body">
         @include('components.validation')
         
-            
-      
-    
-            <table class=" table table-warning table-hover table-responsive table-center">
-             
-            <tr>
-                <th >No</th>
-                <th>Index</th> 
-            
-              @foreach ($subjects as $subject)
-                <th>{{$subject->subject_name}}</th>
-              
-              @endforeach   
-                <th >subject</th>
-          
-                <th>total</th>
-                <th>average</th>
-                <th>position</th>
-
-            </tr>
-                <td></td>
-                @foreach ($students as $student)
-                <td>{{$student->index_no}}</td>
-                @endforeach
-               
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-
-             
-              
-            
-      
-            </tr>
-            
-
-
-                
-    
-                    
-                   
-            </table>
+         
             <table class=" table table-warning table-hover table-responsive table-center">
              <thead>
               <tr>
@@ -62,6 +20,9 @@
                 @foreach ($subjects as $subject)
                 <th>{{$subject->subject_name}}</th>
               @endforeach   
+              <th>total</th>
+              <th>average</th>
+              <th>position</th>
                 
               </tr>
                
@@ -76,8 +37,12 @@
                    $termtest = App\Models\TermTest::where('subject_id',$subject->id)->where('term_id',$thisTerm->id)->first();
                    if($termtest!=null){
                     $thisMark = $marks->where('term_test_id',$termtest->id)->where('student_id',$mark->student_id)->first();
-                    $value = $thisMark->marks;
-
+                   
+                    if($thisMark!=null){
+                      $value = $thisMark->marks;
+                    }else {
+                      $value = "N/A";
+                    }
                    }else{
 
                     $value = "N/A";
@@ -87,10 +52,26 @@
                 @endphp
 
                
-               
-                <td>{{$value}}</td>
+<td>{{$value}}</td>
               
-              @endforeach   
+              
+              @endforeach  
+             
+              <td>
+                @php
+                   $total= $marks->where('student_id',$mark->student_id)->sum('marks');
+                   $recordCount = $marks->where('student_id',$mark->student_id)->count();
+
+                   $avg = $total/$recordCount;
+                   
+                @endphp
+               {{$total}}
+              </td>
+              <td>
+                {{number_format((float)$avg, 2, '.', '')}}
+                </td>
+                <td>
+                  </td> 
               
                 
               </tr>
