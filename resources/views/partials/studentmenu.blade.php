@@ -122,7 +122,7 @@
                 
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{route('achievements.index')}}">
+                <a class="nav-link " href="{{route('achievements.create')}}">
                     <i class="fa-fw fas fa-plus nav-icon">
 
                     </i>

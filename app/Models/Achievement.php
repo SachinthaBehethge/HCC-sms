@@ -12,13 +12,20 @@ class Achievement extends Model
     protected $follable = [
         'id',
         'student_id',
+        'class_id',
         'achievement',
-        'is_approved'
+        'is_approved',
+        'approved_by'
     ];
 
     public function student()
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(Student::class,);
+    }
+
+    public function classes()
+    {
+        return $this->belongsToMany(Classes::class);
     }
 
 }

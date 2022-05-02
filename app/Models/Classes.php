@@ -35,4 +35,13 @@ class Classes extends Model
     public function notices(){
         return $this->hasMany(Notice::class);
     }
+
+    public function timetables()
+    {
+        return $this->hasMany(Timetable::class);
+    }
+
+    public function achievements(){
+        return $this->hasMany(Achievement::class);
+    }
 }

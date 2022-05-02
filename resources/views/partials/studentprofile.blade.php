@@ -47,7 +47,34 @@
     <div class="card text-left">
       <img class="card-img-top" src="holder.js/100px180/" alt="">
       <div class="card-body">
-        <h4 class="card-title"> Title</h4>
+
+        <table class=" table table-success table-hover table-responssive ">
+            <tr class="tr-success">
+                <th>No</th>
+                <th>Achievements</th>
+                <th>Approved By</th>
+                <th>Approved Day</th>
+            </tr>
+            @foreach($student->achievements as $key => $achievement)
+                @if ($achievement->is_approved=1)
+                <tr id="tableRow">
+                    <td>{{$key+1}}</td>
+                    <td>{{$achievement->achievement }}</td>
+                    <td>{{$achievement->approved_by}}</td>
+                    <td>{{$achievement->updated_at}}</td>
+                  
+
+
+                    
+                </tr>
+                @endif
+                   
+
+               
+                @endforeach
+               
+        </table>
+     
         
         
       </div>
@@ -56,7 +83,7 @@
 
 <div class="col-md-8">
     <div class="p-3 py-5">
-        <div class="d-flex justify-content-between align-items-center experience"><span>Add My Achievements</span><span class="border px-3 p-1 add-experience">
+        <div  href="{{route('achievements.create')}} class="d-flex justify-content-between align-items-center experience"><span></span><span class="border px-3 p-1 add-experience">
             
 
             <i  class=" fa fa-plus"></i><a href="{{route('achievements.create')}}" >&nbsp;Achievement</a></span>

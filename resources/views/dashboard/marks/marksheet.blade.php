@@ -52,7 +52,7 @@
                 @endphp
 
                
-<td>{{$value}}</td>
+                <td>{{$value}}</td>
               
               
               @endforeach  
@@ -86,7 +86,6 @@
                       
                      
               </table>
-
 
 
             {{-- <input type="submit" value="Add Marks" class="btn btn-warning pull-right col-md-5"> --}}

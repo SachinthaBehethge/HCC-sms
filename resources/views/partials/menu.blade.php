@@ -104,7 +104,7 @@
         
           
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link " href="{{route('timetable.index')}}">
                     <i class="fa-fw fa fa-calendar nav-icon">
 
                     </i>
@@ -112,6 +112,7 @@
                 </a>
                 
             </li>
+           
             
            
        

@@ -12,8 +12,14 @@ class CreaatePeriodsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        //
+    {   
+        Schema::create('periods', function (Blueprint $table) {
+            $table->id();
+            $table->string('period');
+            $table->string('start');
+            $table->string('end');
+        });
+        
     }
 
     /**
@@ -23,6 +29,7 @@ class CreaatePeriodsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('periods');
+
     }
 }

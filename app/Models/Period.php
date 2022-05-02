@@ -5,22 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Day extends Model
+class Period extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'day'
+        'period',
+        'start',
+        'end'
     ];
 
-    public function periods()
+    public function days()
     {
-        return $this->hasMany(Period::class);
+        return $this->belongsTo(Day::class);
     }
 
-    public function timetable()
+    public function timetables()
     {
         return $this->hasMany(Timetable::class);
     }
-
 }

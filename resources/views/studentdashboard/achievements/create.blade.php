@@ -14,6 +14,9 @@
              @csrf
               <br>
               <div class="form-floating">
+                  <input type="text" id="class" name="class" value="{{$loggedUser->student->class->id}}" class="form-control" hidden required>
+                  {{-- <input type="text" id="stid" name="stid" value="" class="form-control" hidden required> --}}
+
                   <input type="text" id="stid" name="stid" value="{{$loggedUser->id}}" class="form-control" hidden required>
               </div>
               

@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
     Route::get('dashboard','HomeController@dashboard')->name('dashboard');
     Route::get('students','HomeController@classstudent')->name('students');
-    Route::get('student.view','HomeController@studentview')->name('student.view');
+    Route::get('studentview','HomeController@studentview')->name('studentview');
 
     Route::resource('notices','NoticeController');
     Route::get('notices.index','NoticeController@index')->name('notices.index');
@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('marksheet','MarkController@marksheet')->name('marksheet');
     Route::get('schoolnotice','NoticeController@schoolnotice')->name('schoolnotice');
     Route::resource('achievements','AchievementController');
+    Route::resource('timetable','TimetableController');
 
 
 });

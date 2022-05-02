@@ -12,7 +12,7 @@
         
             <table class=" table table-boardered table-warning table-hover table-responssive ">
                 <tr class="tr-success">
-                    <th>#</th>
+                    <th>No</th>
                     <th>Index No.</th>
                     <th>Student Name</th>
                     <th>Action</th>
@@ -24,7 +24,7 @@
                             <td>{{$student->index_no }}</td>
                             <td>{{$student->fullname}}</td>
                            <td>
-                            <a href="{{ route('student.view', $student->id) }}" class="btn btn-success col-md-6" style="margin-right: 2px">View</a>
+                            <a href="{{ route('studentview', $student->id) }}" class="btn btn-success col-md-6" style="margin-right: 2px">View</a>
                            
                            </td>
                               

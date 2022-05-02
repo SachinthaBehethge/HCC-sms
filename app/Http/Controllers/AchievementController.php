@@ -22,13 +22,13 @@ class AchievementController extends Controller
         $teacher = Teacher::find($user->id);
         $class = $teacher->class;
 
+        $achievements = Achievement::where('class_id','=',$class->id)->where('is_approved','=',0)->get();
+       
         
-        $students = Student::with('classes_id','=',$class->id);
-        $achievements = Achievement::all();
 
 
        
-        return view('dashboard.student.achievement');
+        return view('dashboard.student.achievement',compact('achievements'));
     }
 
     /**
@@ -53,9 +53,10 @@ class AchievementController extends Controller
         $achievement = new Achievement;
         $achievement->student_id = $request->stid;
         $achievement->achievement =$request->achievement;
+        $achievement->class_id = $request->class;
         $achievement->save();
 
-        return redirect()->route('achievements.index')->with('message', 'Your achievement Added successfully, please wait until approvement!');
+        return redirect()->route('achievements.create')->with('message', 'Your achievement Added successfully, please wait until approvement!');
 
     }
 
@@ -90,7 +91,13 @@ class AchievementController extends Controller
      */
     public function update(Request $request, Achievement $achievement)
     {
-        //
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $achievement->is_approved = $request->approve;
+        $achievement->approved_by = $teacher->name;
+        $achievement->save();
+
+        return redirect()->route('achievements.index')->with('message','Achievement Approved!');
     }
 
     /**
