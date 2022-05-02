@@ -106,8 +106,20 @@ class ClassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $class = Classes::find($id);
+        $class->teacher_id = $request->classteacher;
+        $class->save();
+
+        if ($request->classteacher!=null) {
+            $teacher=Teacher::find($request->classteacher);
+            $teacher->is_classteacher = 0;
+            $teacher->save();
+        }
+
+        return redirect()->route('admin.classes.index')->with('message','Class Teacher Added!');
+
+
     }
 
     /**
@@ -118,9 +130,13 @@ class ClassController extends Controller
      */
     public function destroy($id)
     {
+      
         $class = Classes::find($id);
+        $teacher= Teacher::find($class->teacher_id);
+        $teacher->is_classteacher = 1;
+        $teacher->save();
         $class->delete();
-        return redirect()->route('admin.classses.index')->with('message','Class Deleted!');
+        return redirect()->route('admin.classes.index')->with('message','Class Deleted!');
 
     }
 }

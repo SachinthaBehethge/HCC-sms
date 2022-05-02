@@ -92,7 +92,7 @@
             </li>
         
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link " href="{{route('reportcard')}}">
                     <i class="fa-fw fas fa-book nav-icon">
                         
                     </i>
@@ -113,7 +113,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link " href="{{route('student.timetable')}}">
                     <i class="fa fa-times-rectangle-o nav-icon">
 
                     </i>

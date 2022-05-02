@@ -10,7 +10,7 @@
         
               <table class=" table table-boardered table-hover table-responssive mt-5">
                   <tr>
-                      <th>#</th>
+                      <th>No</th>
                       <th>section</th>
                       <th> Class</th> 
                       <th>Class Teacher</th>
@@ -50,14 +50,14 @@
                       </td>
                       <td>
                        
-                        <a href="{{ route('admin.classes.show', $class->id) }}" class="btn btn-success col-md-2" style="margin-right: 2px">View</a>
-                        <a href="{{route('admin.classes.edit', $class->id)}}" class="btn btn-primary col-md-2" style="margin-right: 2px">Update class</a>
+                        
+                        <a href="{{route('admin.classes.edit', $class->id)}}" class="btn btn-primary col-md-5" style="margin-right: 2px">Update class</a>
 
                         <form method="POST" action="{{route('admin.classes.destroy', $class->id)}}">
                             @csrf
                             {{method_field('DELETE')}}
                             <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this class?')"
-                            class="btn  btn-danger col-md-2" />
+                            class="btn  btn-danger col-md-3" />
                         </form>
 
                       </td>

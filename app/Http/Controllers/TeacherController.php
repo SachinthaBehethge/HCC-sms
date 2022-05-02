@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -54,7 +55,7 @@ class TeacherController extends Controller
         $user = new User;
         $user->name = $request->teachername;
         $user->email = $request->email;
-        $passWord = str::random(8);
+        $passWord = $request->teacherno;
         $user->password = Hash::make($passWord);
         $user->role_id ='2';
         $user->save();
@@ -156,12 +157,15 @@ class TeacherController extends Controller
        
         if($teacher->is_classteacher){
             $teacher->is_classteacher=0;
+           
+            
         }else{
             $teacher->is_classteacher=1;
+            
         }
 
         $teacher->save();
-
+       
 
         return redirect()->back();
 

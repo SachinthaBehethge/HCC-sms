@@ -13,8 +13,8 @@
         <h1 class="page-header">Change Class Teacher</h1>
     </div>
     <div class="panel-body">
-        <form action="{{route('admin.classes.store', $class->id)}}" method="POST"  enctype="multipart/form-data">
-            {{method_field('PUT')}}
+        <form action="{{route('admin.classes.update', $class->id)}}" method="POST"  enctype="multipart/form-data">
+        {{method_field('PUT')}}
            @csrf
             <br>
             <div class="form-floating">
@@ -33,11 +33,14 @@
             <br>
             <div class="form-floating">            
                 <label for="floatingInput">Class Teacher :</label>
-                    <input type="text"  placeholder="{{$class->teacher->name}}" class="form-control" disabled>
+                @if ($class->teacher_id != null)
+                <input type="text"  placeholder="{{$class->teacher->name}}" class="form-control" disabled>
+
+                @endif
 
                     <br>
                     <select id="classteacher" name="classteacher" class="form-control @error('classteacher') is-invalid @enderror" >
-                        <option value="{{$class->teacher->id}}" selected>select class teacher</option>
+                        <option value="{{$class->teacher_id}}" selected>select class teacher</option>
                     @foreach ($teachers as $teacher)
                         @if ($teacher->is_classteacher==1)
                         <option value="{{($teacher->id)}}">{{$teacher->name}}</option>

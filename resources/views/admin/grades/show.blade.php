@@ -23,7 +23,16 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$class->class_name }}</td>
-                            <td>{{$class->teacher->name}}</td>
+
+                            <td>
+                                @if ($class->teacher_id != null)
+                                    {{$class->teacher->name}}
+                                @else
+                                    No class Teacher
+                                @endif
+                                
+                            </td>
+
                             <td>{{$class->students->count()}}</td>
                             <td> <a href="{{route('admin.classes.edit', $class->id) }}" class="btn btn-success col-md-6" style="margin-right: 2px">Change class Teacher</a>
                             

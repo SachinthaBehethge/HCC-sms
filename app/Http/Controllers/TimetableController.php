@@ -26,6 +26,21 @@ class TimetableController extends Controller
 
         $timetables = Timetable::where('class_id','=',$class->id)->get();
         
+        foreach ($timetables as $timetable)
+        {
+         
+        if ($timetable !=null) {
+          $subject = $timetable->subject;
+        }
+         if($subject!=null){
+           $value = $subject;
+         }else {
+           $value = "Not Set";
+         }
+        
+          
+        }
+        
         //dd($timetables);
 
         return view('dashboard.timetable.index',compact('class','days','periods','timetables'));

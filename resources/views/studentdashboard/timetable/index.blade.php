@@ -9,14 +9,7 @@
 
       </div>
       <div class="panel-body">
-               <a href="{{route('timetable.create')}}"><button type="button" class="btn btn-warning pull-right">Create Time Table</button></a>
-
-        <form action="{{route('timetable.store')}}" method="POST"  enctype="multipart/form-data">
-            @csrf
-            <input type="text" value="{{$class->id}}" name="period" hidden>
-
-         
-            <table class=" table table-default table-hover table-responsive table-center">
+            <table class=" table table-danger table-hover table-responsive table-center">
              <thead>
               <tr>
                 <th></th>
@@ -25,7 +18,6 @@
                 <th>
                   {{$period->period}} <br>
                   {{$period->start}} - {{$period->end}}
-                  <input type="text" value="{{$period->id}}" name="period_id[]" hidden>
                     
                 </th>
                 @endforeach                
@@ -56,11 +48,7 @@
                 <td><input type="text" placeholder="{{$value}}"></td>
               @endforeach
 
-              
-              {{-- <td><input type="text" name="subjects[]"></td>
-              <td><input type="text" name="subjects[]"></td>
-              <td><input type="text" name="subjects[]"></td>
-              <td><input type="text" name="subjects[]"></td> --}}
+             
               
               @endforeach    
               
@@ -79,10 +67,9 @@
               </table>
 
 
-              {{-- <input type="submit" value="Add Timetable" class="btn btn-warning pull-right col-md-5"> --}}
+            
 
 
-        </form>
    
         
 
