@@ -95,8 +95,9 @@ class HomeController extends Controller
         return view('dashboard.student.view',compact('student'));
     }
 
-    public function sendReports(Request $request,$student_id)
+    public function sendReports()
     {
+        set_time_limit(0);
         $user = Auth::user();
         $teacher = Teacher::find($user->id);
         $students = $teacher->class->students;
@@ -115,14 +116,16 @@ class HomeController extends Controller
             $total= $marks->sum('marks');
             $recordCount = $marks->count();
          
+            if($recordCount!=0){
             $avg = $total/$recordCount;          
 
 
 
-            Mail::send('emails.report', ['name' => $student->name_with_ini,'term'=>$thisTerm,'parent'=>$student->gardian_name,'total'=>$total,'avg'=>$avg,'email'=>$student->gardian_email,'marks'=>$marks], function($message) use($student,$marks){
+            Mail::send('emails.report', ['name' => $student->name_with_ini,'term'=>$thisTerm,'parent'=>$student->gardian_name,'total'=>$total,'avg'=>$avg,'email'=>$student->gardian_email,'marks'=>$marks], function($message) use($student){
                 $message->to($student->gardian_email);
                 $message->subject('Students Performance Repoert of '.$student->name_with_ini." Student");
             });
+          }
         }
     
     }

@@ -28,7 +28,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Auth::routes(['verify'=>true]);
 //auth routes website
-Route::group(['middleware' => ['auth','verified']], function () {
+    Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('profile','ProfileController@index')->name('profile');
     Route::get('dashboard','HomeController@dashboard')->name('dashboard');
     Route::get('students','HomeController@classstudent')->name('students');
