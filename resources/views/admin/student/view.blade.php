@@ -63,7 +63,7 @@
                     <h3>Personal Details</h3>
                     <div class="row mt-2">
                         <div class="col-md-12"><label class="labels">Name</label><input type="text" name="fullname" class="form-control"  value="{{$student->fullname}}" ></div>
-                        <div class="col-md-12"><label class="labels">Birthday</label><input type="date" class="form-control" name="birthday" value="{{$student->dob}}" ></div>
+                        <div class="col-md-12"><label class="labels">Birthday -</label><input type="date" class="form-control" name="dob" value="{{$student->dob}}" ></div>
 
                         {{-- <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" value="surname"></div> --}}
                     </div>
@@ -112,11 +112,42 @@
         </div>
 
         <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-            </div>
+            <h3>Student's Achievements</h3>
+            <div class="card text-left">
+                <img class="card-img-top" src="holder.js/100px180/" alt="">
+                <div class="card-body">
+          
+                  <table class=" table table-success table-hover table-responssive ">
+                      <tr class="tr-success">
+                          <th>No</th>
+                          <th>Achievements</th>
+                          <th>Approved By</th>
+                          <th>Approved Day</th>
+                      </tr>
+                      @foreach($student->achievements as $key => $achievement)
+                          @if ($achievement->is_approved=1)
+                          <tr id="tableRow">
+                              <td>{{$key+1}}</td>
+                              <td>{{$achievement->achievement }}</td>
+                              <td>{{$achievement->approved_by}}</td>
+                              <td>{{$achievement->updated_at}}</td>
+                            
+          
+          
+                              
+                          </tr>
+                          @endif
+                             
+          
+                         
+                          @endforeach
+                         
+                  </table>
+               
+                  
+                  
+                </div>
+              </div>
         </div>
     </div>
 </div>

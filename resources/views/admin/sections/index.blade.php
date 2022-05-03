@@ -11,7 +11,7 @@
                 <tr>
                     <th>No</th>
                     <th>Section</th>
-                    <th>Action</th>
+                    
                 </tr>
                 @forelse($sections as $key => $section)
     
@@ -21,13 +21,13 @@
                             <td> 
                                 {{-- <a href="{{ route('admin.sections.edit', $section->id) }}" class="btn btn-xs btn-primary col-md-8 mb-2">Edit</a> --}}
                                 
-                                <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
+                                {{-- <form method="POST" action="{{route('admin.sections.destroy', $section->id)}}">
                                     @csrf
                                     {{method_field('DELETE')}}
                                     
                                     <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
                                         class="btn  btn-danger col-md-5 " />
-                                </form>
+                                </form> --}}
                                 
                         
 

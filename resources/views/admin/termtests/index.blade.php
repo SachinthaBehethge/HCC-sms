@@ -7,6 +7,8 @@
         
       </div>
       <div class="panel-body">
+        <a href="{{route('admin.termtests.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Term Test</button></a>
+        <br>
             <table class=" table table-dark table-hover table-responsive ">
                 <tr>
                     <th>No</th>
@@ -27,14 +29,22 @@
                             <td>{{$termtest->start_time}}</td>
                             <td>{{$termtest->end_time}}</td>
                             <td> 
-                                <a href="{{ route('admin.termtests.edit', $termtest->id) }}" class="btn btn-md btn-success col-md-6" style="margin-right: 2px">Edit</a>
+                                {{-- <a href="{{ route('admin.termtests.edit', $termtest->id) }}" class="btn btn-md btn-success col-md-6" style="margin-right: 2px">Edit</a> --}}
                                 
                                 <form method="POST" action="{{route('admin.termtests.destroy', $termtest->id)}}">
                                     @csrf
                                     {{method_field('DELETE')}}
                                     
-                                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                      
+                                        @if ($termtest->test_date <= $today)
+                                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
+                                        class="btn btn-md btn-danger  "  disabled/>
+                                        @else
+                                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this grade?')"
                                         class="btn btn-md btn-danger  " />
+                                        @endif
+                                    
+                                       
                                 </form>
                                 
                         
@@ -54,7 +64,6 @@
                    
             </table>
        
-            <a href="{{route('admin.termtests.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Term Test</button></a>
 
     </div>
   </div>

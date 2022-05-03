@@ -25,7 +25,7 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="assets/img/slider/school1.jpg" class="d-block w-100 " style="height: 40% !important; " alt="...">
+              <img src="assets/img/slider/school3.jpg" class="d-block w-100 " style="height: 40% !important; " alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>
@@ -42,7 +42,7 @@
               
             </div>
             <div class="carousel-item">
-              <img src="assets/img/slider/school1.jpg" class="d-block w-100" alt="...">
+              <img src="assets/img/slider/school3.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p></p>

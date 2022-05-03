@@ -11,7 +11,7 @@
            <div class="form-floating">            
             <label for="floatingInput">Section :</label>
                 <br>
-                <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" >
+                <select id="section" name="section" class="form-control @error('section') is-invalid @enderror" required>
                     <option value="" selected>select Section</option>
                     @foreach ($sections as $section)
                     <option value="{{($section->id)}}">{{$section->section_name}}</option>

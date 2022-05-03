@@ -104,6 +104,8 @@ class GradeController extends Controller
      */
     public function destroy(Grade $grade)
     {
-        //
+        $grade->delete();
+
+        return redirect()->route('admin.grades.index')->with('message','Grade Deleted!');
     }
 }

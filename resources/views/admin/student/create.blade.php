@@ -212,7 +212,7 @@
                         </div> --}}
                         
                         <br>
-                        <input type="submit" value="Add New Student" class="btn btn-primary pull-right">
+                        <input type="submit" value="Add New Student" class="btn btn-warning pull-right">
                 </div>
             </form>
         </div>

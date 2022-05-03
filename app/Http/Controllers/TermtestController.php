@@ -6,6 +6,7 @@ use App\Models\termtest;
 use Illuminate\Http\Request;
 use App\Models\subject;
 use App\Models\term;
+use Carbon\Carbon;
 
 class TermtestController extends Controller
 {
@@ -16,9 +17,10 @@ class TermtestController extends Controller
      */
     public function index()
     {
+        $today = Carbon::today();
         $termtests = Termtest::all();
 
-        return view('admin.termtests.index',compact('termtests'));
+        return view('admin.termtests.index',compact('termtests','today'));
     }
 
     /**

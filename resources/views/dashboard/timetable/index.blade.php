@@ -57,7 +57,7 @@
                   $value = "Not Set";
                 }
                 @endphp
-                <td><input type="text" placeholder="{{$value}}"></td>
+                <td><input type="text" class="text-center" value="{{$value}}" disabled></td>
               
             @endforeach 
 

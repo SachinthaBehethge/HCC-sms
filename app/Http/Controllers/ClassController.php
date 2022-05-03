@@ -107,7 +107,13 @@ class ClassController extends Controller
      */
     public function update(Request $request, $id)
     {   
+
         $class = Classes::find($id);
+        if ($request->classteacher!=null) {
+            $teacher= Teacher::find($class->teacher_id);
+            $teacher->is_classteacher = 1;
+            $teacher->save();
+        }
         $class->teacher_id = $request->classteacher;
         $class->save();
 

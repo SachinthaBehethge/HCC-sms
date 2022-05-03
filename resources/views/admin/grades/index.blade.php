@@ -46,7 +46,7 @@
                    
             </table>
        
-            <a href="{{route('admin.grades.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Section</button></a>
+            <a href="{{route('admin.grades.create')}}"><button type="button" class="btn btn-warning pull-right">Add New Grade</button></a>
 
     </div>
   </div>

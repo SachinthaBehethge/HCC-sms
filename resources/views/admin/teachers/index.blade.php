@@ -25,7 +25,7 @@
                         <form method="POST" action="{{route('admin.teachers.classteacher')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" value="{{$teacher->is_classteacher?"classteacher":""}}" class="custom-control-input isClassTeacher" {{$teacher->is_classteacher?"":"checked"}}>
+                                <input type="checkbox" value="{{$teacher->is_classteacher?"classteacher":""}}" disabled class="custom-control-input isClassTeacher" {{$teacher->is_classteacher?"":"checked"}}>
                                  <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
                                 <label class="custom-control-label" for="customSwitch1">{{$teacher->is_classteacher?"Not a Class Teacher":"Class Teacher"}}</label>
                               </div>
