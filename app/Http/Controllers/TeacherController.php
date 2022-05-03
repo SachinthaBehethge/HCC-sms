@@ -7,8 +7,9 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Str;
-use mail;
+use Illuminate\Support\Facades\Mail;
 
 class TeacherController extends Controller
 {
@@ -71,7 +72,7 @@ class TeacherController extends Controller
 
         if($request->sendEmail){
 
-            Mail::send('email.welcomeTeacher', ['name' => $request->teachername,'email'=>$request->email,'password'=>$passWord], function($message) use($request){
+            Mail::send('emails.welcometeacher', ['name' => $request->teachername,'email'=>$request->email,'password'=>$passWord], function($message) use($request){
                 $message->to($request->email);
                 $message->subject('Welcome to Hewaheta Central College - Student Management System '.$request->teachername);
             });

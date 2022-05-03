@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Classes;
 use App\Models\Mark;
+use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -103,7 +104,7 @@ class MarkController extends Controller
      */
     public function show(Mark $mark)
     {
-        return view('dashboard.marks.view');
+        return view('dashboard.report.view');
     }
 
     /**
@@ -188,4 +189,48 @@ class MarkController extends Controller
         
         return view('dashboard.marks.marksheet',compact('subjects', 'students','marks','thisTerm'));
     }
+
+
+    public function report()
+    {
+        $user = Auth::user();
+        $teacher = Teacher::find($user->id);
+        $students = $teacher->class->students;
+
+
+        return view('dashboard.reports.index',compact('students'));
+    }
+
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+
+    public function reportView($student_id)
+    {
+        $student = Student::find($student_id);
+
+        $today = Carbon::today();
+        $thisTerm = Term::where('start','<',$today)->where('end','>',$today)->first();
+
+        $marks = Mark::where('student_id',$student->id)->whereHas('termtest',function($query) use ($thisTerm){
+            $query->with('subject_id')->where('term_id',$thisTerm->id);
+             })->groupBy('marks.id')->get();
+
+
+        $total= $marks->sum('marks');
+        $recordCount = $marks->count();
+
+        $avg = $total/$recordCount;   
+
+        return view('dashboard.reports.show',compact('student','total','avg'));
+    }
+
+
+
+
+
 }

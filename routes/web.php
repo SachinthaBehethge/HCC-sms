@@ -47,6 +47,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('timetable','TimetableController');
     Route::get('student.timetable','StudentdashboardController@timetable')->name('student.timetable');
     Route::get('reportcard','StudentdashboardController@mark')->name('reportcard');
+    Route::get('reports','MarkController@report')->name('reports');
+    Route::get('marks.view/{student_id}','MarkController@reportView')->name('marks.view');
+    Route::get('sendReports','HomeController@sendReports')->name('sendReports');
 
 
 

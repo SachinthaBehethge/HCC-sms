@@ -61,9 +61,7 @@
                            <a href="{{route('marksheet')}}" class="nav-link">Mark Sheet</a> 
                         </li>
                    
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">jhjhj</a> 
-                        </li>
+                       
                         
 
 
@@ -109,6 +107,15 @@
 
                     </i>
                    Time Table
+                </a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{route('reports')}}">
+                    <i class="fa-fw fa fa-book nav-icon">
+
+                    </i>
+                   Reports
                 </a>
                 
             </li>
