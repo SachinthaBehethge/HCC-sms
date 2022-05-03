@@ -82,11 +82,11 @@ class HomeController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function studentview(Student $student )
+    public function studentview($student_id)
     {
-        //dd($student->id);
-        $student = Student::find(17);
-        dd($student);
+        
+        $student = Student::find($student_id);
+        // dd($student);
 
         return view('dashboard.student.view',compact('student'));
     }
