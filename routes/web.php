@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Auth;
 //public routes
 //public routes
 Route::get('/', 'HomeController@homepage')->name('homepage');
-Route::get('/register', 'Auth\RegisterController@index')->name('register');
-Route::post('/register', 'Auth\RegisterController@register')->name('register');
+//Route::get('/register', 'Auth\RegisterController@index')->name('register');
+//Route::post('/register', 'Auth\RegisterController@register')->name('register');
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
-Route::get('/about', 'HomeController@about')->name('about');
+//Route::get('/about', 'HomeController@about')->name('about');
 //Route::get('/contact', 'CourseController@contact')->name('contact');
 
 

@@ -60,13 +60,52 @@
         </div>
         <br>
     </section>
-    
+    <br>
+    <section class="vision-mission" >
+      <div class="container">
+        <h1>Dashboards</h1>
+        <hr>
+          <div class="row justify-content-center ">
+              <div class="col-md-4 col-lg-3 image-element">
+                  <div class="img-wrap " style="height:auto; width: auto;">
+                      <img class="vision mv" src="assets/img/slider/admin.PNG" style="height:auto; width: 100%;" alt="" title="">
+                      <div class="middle">
+                        <div class="text-vm">Admin Dashboard</div>
+                      </div>
+                  </div>
+                  <br>
+              </div>
+              <div class="col-md-4 col-lg-3 image-element">
+                <div class="img-wrap " style="height:auto; width: auto;">
+                    <img class="vision mv" src="assets/img/slider/class dashboard.PNG" style="height:auto; width: 100%;" alt="" title="">
+                    <div class="middle">
+                      <div class="text-vm">Class Dashboard</div>
+                    </div>
+                </div>
+                <br>
+              </div>
+              <div class="col-md-4 col-lg-3 image-element">
+                <div class="img-wrap " style="height:auto; width: auto;">
+                    <img class="vision mv" src="assets/img/slider/student dashboard.PNG" style="height:auto; width: 100%;" alt="" title="">
+                    <div class="middle">
+                      <div class="text-vm">Student Dashboard</div>
+                    </div>
+                </div>
+                <br>
+              </div>
+          </div>
+         
+          
+         
+      </div>          
+  </section>
+  <br>
     <section class="vision-mission" >
       <div class="container">
         <h1>Services</h1>
         <hr>
           <div class="row justify-content-center ">
-              <div class="col-md-4 col-lg-4 image-element">
+              <div class="col-md-3 col-lg-3 image-element">
                   <div class="img-wrap " style="height:auto; width: auto;">
                       <img class="vision mv" src="assets/img/slider/marks.jpg" style="height:auto; width: 100%;" alt="" title="">
                       <div class="middle">
@@ -75,7 +114,7 @@
                   </div>
                   <br>
               </div>
-              <div class="col-md-4 col-lg-4 image-element">
+              <div class="col-md-3 col-lg-3 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
                     <img class="vision mv" src="assets/img/slider/info.jpg" style="height:auto; width: 100%;" alt="" title="">
                     <div class="middle">
@@ -84,7 +123,7 @@
                 </div>
                 <br>
               </div>
-              <div class="col-md-4 col-lg-4 image-element">
+              <div class="col-md-3 col-lg-3 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
                     <img class="vision mv" src="assets/img/slider/notice.jpg" style="height:auto; width: 100%;" alt="" title="">
                     <div class="middle">
@@ -95,16 +134,16 @@
               </div>
           </div>
           <div class="row justify-content-center ">
-            <div class="col-md-4 col-lg-4 image-element">
+            <div class="col-md-3 col-lg-3 image-element">
                 <div class="img-wrap " style="height:auto; width: auto;">
-                    <img class="vision mv" src="assets/img/slider/time table.jpg" style="height:auto; width: 100%;" alt="" title="">
+                    <img class="vision mv" src="assets/img/slider/time table.jpg" style="height:; width: 100%; " alt="" title="">
                     <div class="middle">
                       <div class="text-vm">CHECK TIMETABLES</div>
                     </div>
                 </div>
                 <br>
             </div>
-            <div class="col-md-4 col-lg-4 image-element">
+            <div class="col-md-3 col-lg-3 image-element">
               <div class="img-wrap " style="height:auto; width: auto;">
                   <img class="vision mv" src="assets/img/slider/exam.jpg" style="height:auto; width: 100%;" alt="" title="">
                   <div class="middle">
@@ -113,11 +152,11 @@
               </div>
               <br>
           </div>
-          <div class="col-md-4 col-lg-4 image-element">
+          <div class="col-md-3 col-lg-3 image-element">
             <div class="img-wrap " style="height:auto; width: auto;">
-                <img class="vision mv" src="assets/img/slider/badge.jpg" style="height:auto; width: 100%;" alt="" title="">
+                <img class="vision mv" src="assets/img/slider/achievements.jpeg" style="height:auto; width: 110%;" alt="" title="">
                 <div class="middle">
-                  <div class="text-vm">Vision</div>
+                  <div class="text-vm">STUDENT ACHIEVEMENTS</div>
                 </div>
             </div>
             <br>
