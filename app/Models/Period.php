@@ -22,6 +22,6 @@ class Period extends Model
 
     public function timetables()
     {
-        return $this->hasMany(Timetable::class);
+        return $this->hasMany(Timetable::class,'period_id');
     }
 }
